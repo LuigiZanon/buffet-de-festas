@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Menu\MenuController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +21,5 @@ Route::get('/', function () {
 Route::get('/hello', function () {
     echo "Hello-world";
 });
+
+Route::get('/menu', [MenuController::class,'menu'])->name('menu.site');
