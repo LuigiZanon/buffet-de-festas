@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="globals.css" />
     <link rel="stylesheet" href="style.css" />
     <link href="CSS.css" rel="stylesheet">
+    <link href="/css/StyleMenu.css" rel="stylesheet">
     <title>4fun - Home</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
