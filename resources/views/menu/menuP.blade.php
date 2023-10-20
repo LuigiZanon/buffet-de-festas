@@ -1,305 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
-    <link href="/css/StyleMenu.css" rel="stylesheet">
-    <title>Responsive Dashboard Design #1 | AsmrProg</title>
+    <link rel="stylesheet" href="globals.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link href="CSS.css" rel="stylesheet">
+    <title>4fun - Home</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        /* Add your CSS styles here to enhance the page's appearance */
+    </style>
 </head>
 
 <body>
+    <img class="ImgLocal" src="https://media.discordapp.net/attachments/1138806499611779146/1164722422554038272/buufet.png?ex=65443f49&is=6531ca49&hm=164c4e7fc43f6beab5b9be910964de17074297b5911cd7a48580ac6d258b6d39&=" />
 
-    <div class="container">
-        <!-- Sidebar Section -->
-        <aside>
-            <div class="toggle">
-                <div class="logo">
-                    <img src="images/logo.png">
-                    <h2>Asmr<span class="danger">Prog</span></h2>
-                </div>
-                <div class="close" id="close-btn">
-                    <span class="material-icons-sharp">
-                        close
-                    </span>
-                </div>
-            </div>
+    <div class="UI-TOPO">
+        <div class="ABA_TOP">
+            <p class="TitlePos">
+                <span class="Title_4">4</span> <span class="Title_Fun">fun Eventos &amp; Festas</span>
+            </p>
+            <div class="line1"></div>
+            <div class="line2"></div>
 
-            <div class="sidebar">
-                <a href="#">
-                    <span class="material-icons-sharp">
-                        dashboard
-                    </span>
-                    <h3>Dashboard</h3>
-                </a>
-                <a href="#">
-                    <span class="material-icons-sharp">
-                        person_outline
-                    </span>
-                    <h3>Users</h3>
-                </a>
-                <a href="#">
-                    <span class="material-icons-sharp">
-                        receipt_long
-                    </span>
-                    <h3>History</h3>
-                </a>
-                <a href="#" class="active">
-                    <span class="material-icons-sharp">
-                        insights
-                    </span>
-                    <h3>Analytics</h3>
-                </a>
-                <a href="#">
-                    <span class="material-icons-sharp">
-                        mail_outline
-                    </span>
-                    <h3>Tickets</h3>
-                    <span class="message-count">27</span>
-                </a>
-                <a href="#">
-                    <span class="material-icons-sharp">
-                        inventory
-                    </span>
-                    <h3>Sale List</h3>
-                </a>
-                <a href="#">
-                    <span class="material-icons-sharp">
-                        report_gmailerrorred
-                    </span>
-                    <h3>Reports</h3>
-                </a>
-                <a href="#">
-                    <span class="material-icons-sharp">
-                        settings
-                    </span>
-                    <h3>Settings</h3>
-                </a>
-                <a href="#">
-                    <span class="material-icons-sharp">
-                        add
-                    </span>
-                    <h3>New Login</h3>
-                </a>
-                <a href="#">
-                    <span class="material-icons-sharp">
-                        logout
-                    </span>
-                    <h3>Logout</h3>
-                </a>
-            </div>
-        </aside>
-        <!-- End of Sidebar Section -->
-
-        <!-- Main Content -->
-        <main>
-            <h1>Analytics</h1>
-            <!-- Analyses -->
-            <div class="analyse">
-                <div class="sales">
-                    <div class="status">
-                        <div class="info">
-                            <h3>Total Sales</h3>
-                            <h1>$65,024</h1>
-                        </div>
-                        <div class="progresss">
-                            <svg>
-                                <circle cx="38" cy="38" r="36"></circle>
-                            </svg>
-                            <div class="percentage">
-                                <p>+81%</p>
-                            </div>
-                        </div>
+                <img class="line-2" src="img/line-5.svg" />
+                <div class="ButtonPos">
+                    <div class="BT_AGENDA">
+                        <div class="text-wrapper-2">Agenda</div>
                     </div>
                 </div>
-                <div class="visits">
-                    <div class="status">
-                        <div class="info">
-                            <h3>Site Visit</h3>
-                            <h1>24,981</h1>
-                        </div>
-                        <div class="progresss">
-                            <svg>
-                                <circle cx="38" cy="38" r="36"></circle>
-                            </svg>
-                            <div class="percentage">
-                                <p>-48%</p>
-                            </div>
-                        </div>
-                    </div>
+                <img class="line-3" src="img/line-6.svg" />
+                <div class="BT_CADASTRAR">
+                    <div class="Cadastrar">Cadastrar</div>
                 </div>
-                <div class="searches">
-                    <div class="status">
-                        <div class="info">
-                            <h3>Searches</h3>
-                            <h1>14,147</h1>
-                        </div>
-                        <div class="progresss">
-                            <svg>
-                                <circle cx="38" cy="38" r="36"></circle>
-                            </svg>
-                            <div class="percentage">
-                                <p>+21%</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- End of Analyses -->
-
-            <!-- New Users Section -->
-            <div class="new-users">
-                <h2>New Users</h2>
-                <div class="user-list">
-                    <div class="user">
-                        <img src="images/profile-2.jpg">
-                        <h2>Jack</h2>
-                        <p>54 Min Ago</p>
-                    </div>
-                    <div class="user">
-                        <img src="images/profile-3.jpg">
-                        <h2>Amir</h2>
-                        <p>3 Hours Ago</p>
-                    </div>
-                    <div class="user">
-                        <img src="images/profile-4.jpg">
-                        <h2>Ember</h2>
-                        <p>6 Hours Ago</p>
-                    </div>
-                    <div class="user">
-                        <img src="images/plus.png">
-                        <h2>More</h2>
-                        <p>New User</p>
-                    </div>
-                </div>
-            </div>
-            <!-- End of New Users Section -->
-
-            <!-- Recent Orders Table -->
-            <div class="recent-orders">
-                <h2>Recent Orders</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Course Name</th>
-                            <th>Course Number</th>
-                            <th>Payment</th>
-                            <th>Status</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
-                <a href="#">Show All</a>
-            </div>
-            <!-- End of Recent Orders -->
-
-        </main>
-        <!-- End of Main Content -->
-
-        <!-- Right Section -->
-        <div class="right-section">
-            <div class="nav">
-                <button id="menu-btn">
-                    <span class="material-icons-sharp">
-                        menu
-                    </span>
-                </button>
-                <div class="dark-mode">
-                    <span class="material-icons-sharp active">
-                        light_mode
-                    </span>
-                    <span class="material-icons-sharp">
-                        dark_mode
-                    </span>
-                </div>
-
-                <div class="profile">
-                    <div class="info">
-                        <p>Hey, <b>Reza</b></p>
-                        <small class="text-muted">Admin</small>
-                    </div>
-                    <div class="profile-photo">
-                        <img src="images/profile-1.jpg">
-                    </div>
-                </div>
+                <div class="BT_ENTRAR">
+                    <div class="text-wrapper-4">Entrar</div>
 
             </div>
-            <!-- End of Nav -->
-
-            <div class="user-profile">
-                <div class="logo">
-                    <img src="images/logo.png">
-                    <h2>AsmrProg</h2>
-                    <p>Fullstack Web Developer</p>
-                </div>
-            </div>
-
-            <div class="reminders">
-                <div class="header">
-                    <h2>Reminders</h2>
-                    <span class="material-icons-sharp">
-                        notifications_none
-                    </span>
-                </div>
-
-                <div class="notification">
-                    <div class="icon">
-                        <span class="material-icons-sharp">
-                            volume_up
-                        </span>
-                    </div>
-                    <div class="content">
-                        <div class="info">
-                            <h3>Workshop</h3>
-                            <small class="text_muted">
-                                08:00 AM - 12:00 PM
-                            </small>
-                        </div>
-                        <span class="material-icons-sharp">
-                            more_vert
-                        </span>
-                    </div>
-                </div>
-
-                <div class="notification deactive">
-                    <div class="icon">
-                        <span class="material-icons-sharp">
-                            edit
-                        </span>
-                    </div>
-                    <div class="content">
-                        <div class="info">
-                            <h3>Workshop</h3>
-                            <small class="text_muted">
-                                08:00 AM - 12:00 PM
-                            </small>
-                        </div>
-                        <span class="material-icons-sharp">
-                            more_vert
-                        </span>
-                    </div>
-                </div>
-
-                <div class="notification add-reminder">
-                    <div>
-                        <span class="material-icons-sharp">
-                            add
-                        </span>
-                        <h3>Add Reminder</h3>
-                    </div>
-                </div>
-
-            </div>
-
         </div>
-
-
     </div>
 
-    <script src="orders.js"></script>
-    <script src="index.js"></script>
+    <div class="SobreFix">
+        <div class="SobreBox"></div>
+        <p class="SobreTxt">
+            O 4Fun Eventos &amp; Festas é o seu parceiro para momentos especiais. Com experiência e paixão por eventos,
+            nossa equipe se dedica a tornar suas celebrações inesquecíveis. Da concepção à execução, cuidamos de cada
+            detalhe para garantir alegria, sabor e diversão. Seja para casamentos, aniversários ou eventos corporativos,
+            o 4Fun Buffet é a escolha ideal. Deixe-nos fazer parte das suas memórias especiais e transformar seus sonhos
+            em realidade. Bem-vindo à diversão no 4Fun Buffet!
+        </p>
+        <div class="SobreTitle">Sobre nós:</div>
+    </div>
+
+    <p class="TitleSobImg">
+        <span class="Title-4">4</span> <span class="Title-Fun">fun Buffet</span>
+    </p>
+    <div class="DiversaoFix">
+        <div class="DiversaoTitle">Diversão:</div>
+        <p class="DiversaoTxt">
+            No 4Fun Buffet, nossos pequenos convidados têm um espaço especial para brincar e se divertir. Nosso playground
+            infantil é projetado com segurança e diversão em mente, proporcionando às crianças um ambiente empolgante para
+            explorar enquanto os adultos desfrutam das celebrações.
+        </p>
+    </div>
+
+    <img class="line-4" src="img/line-7.svg" />
+
+    <img class="line-5" src="img/line-8.svg" />
+
+    <img class="PLAYGROUND" src="https://media.discordapp.net/attachments/1138806499611779146/1164723152870457456/28278d4f561abab8d0106afe011e14a8.png?ex=65443ff7&is=6531caf7&hm=9a55093fd3cbbca7014c07e961a925f43ef1930e0dfcb03b5b74135a9c2b7635&=" />
+
+    <img class="COMIDA" src="https://media.discordapp.net/attachments/1138806499611779146/1164723126664450148/94a893ff470079472f7a63e640a488d3.png?ex=65443ff0&is=6531caf0&hm=f6675fcb91a265963d614133b91670430d8ac8ecd97e1e94ffa9800c1a90a3f0&=" />
+
+    <div class="MenuFix">
+        <div class="MenuTitle">Menu:</div>
+        <p class="MenuTxt">
+            Em nosso cardápio, oferecemos diversos pacotes de alimentação completos a preços variados. Nosso objetivo é
+            proporcionar opções que atendam a diversas preferências e orçamentos, desde pratos gourmet até escolhas mais
+            descontraídas. No 4Fun Buffet, a diversidade está no cardápio, e estamos aqui para tornar cada refeição uma
+            deliciosa parte de suas celebrações.
+        </p>
+    </div>
+
+    <div class="ContatoFix">
+        <div class="Contato">Contato:</div>
+        <div class="Tel">Telefone:</div>
+        <div class="TelNum">(19) 911</div>
+        <img class="TelIcon" src="https://media.discordapp.net/attachments/1138806499611779146/1164742305295646780/icons8-telephone-30.png?ex=654451cd&is=6531dccd&hm=930265dcfeeb20a36440954c240fa276a239c025ef337e7cc588eba40c055754&=" />
+        <img class="TelIcon2" src="https://media.discordapp.net/attachments/1138806499611779146/1164742305295646780/icons8-telephone-30.png?ex=654451cd&is=6531dccd&hm=930265dcfeeb20a36440954c240fa276a239c025ef337e7cc588eba40c055754&=" />
+        <div class="TelNum2">(19) 190</div>
+        <div class="Email">Email:</div>
+        <div class="Mail">4fun-festas@email.com.br</div>
+        <div class="Endereco">Endereço:</div>
+        <p class="End">Avenida Jacinto Pinto Gomes, 872, São Paulo, Campinas</p>
+    </div>
 </body>
 
 </html>
