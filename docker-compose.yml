@@ -46,7 +46,7 @@ services:
                 - ping
                 - '-p${DB_PASSWORD}'
             retries: 3
-            timeout: 5s
+            timeout: 5s`
 
     phpmyadmin:
         depends_on:

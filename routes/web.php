@@ -23,3 +23,5 @@ Route::get('/hello', function () {
 });
 
 Route::get('/menu', [MenuController::class,'menu'])->name('menu.site');
+
+Route::resource('nomedamodel', 'NomeDoController');
