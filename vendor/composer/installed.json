@@ -8394,7 +8394,6 @@
         "filp/whoops",
         "hamcrest/hamcrest-php",
         "laravel/pint",
-        "laravel/sail",
         "mockery/mockery",
         "myclabs/deep-copy",
         "nunomaduro/collision",
@@ -8425,7 +8424,6 @@
         "spatie/flare-client-php",
         "spatie/ignition",
         "spatie/laravel-ignition",
-        "symfony/yaml",
         "theseer/tokenizer"
     ]
 }
