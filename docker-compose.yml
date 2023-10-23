@@ -49,12 +49,16 @@ services:
             timeout: 5s
 
     phpmyadmin:
+        depends_on:
+            - mysql
         image: phpmyadmin/phpmyadmin
         ports:
         - 8081:80
         environment:
-        - PMA_HOST=mysql-1
+        - PMA_HOST=mysql
         - PMA_PORT=3306
+        networks:
+            - sail
 
 networks:
     sail:
