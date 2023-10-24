@@ -20,3 +20,5 @@ Route::get('/', function () {
 Route::get('/hello', function () {
     echo "Hello-world";
 });
+
+Route::resource('cadastro', 'cadastroController');
