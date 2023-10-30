@@ -30,7 +30,8 @@
         </p>
 
 
-    <div class="BoxSobre"  id="SobreNos">
+    <div class="BoxSobre"">
+        <div class="SobreMarker" id="SobreNos"> </div>
         <div class="SobreTitle">Sobre nós:</div>
         <p class="SobreTxt">
             O 4Fun Eventos &amp; Festas é o seu parceiro para momentos especiais. Com experiência e paixão por eventos,
