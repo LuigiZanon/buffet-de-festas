@@ -18,7 +18,7 @@
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100 dark:bg-gray-900">
             <div>
                 <a href="/">
-                    <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                    <img src="https://cdn.discordapp.com/attachments/1138806499611779146/1169737043740463255/4f.png?ex=65567d83&is=65440883&hm=837b1f735876c2bf186d992d4df84769a852a543740950976528e76546e75d5c&" class="w-40 h-40" />
                 </a>
             </div>
 
