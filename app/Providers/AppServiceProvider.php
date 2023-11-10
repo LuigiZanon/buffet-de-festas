@@ -21,8 +21,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Gate::define("access", function (User $user){
+        Gate::define("access_admin", function (User $user){
             return $user->access_level == 'admin';
         });
+        Gate::define('access_comercial', function (User $user){
+            return $user->access_level == 'comercial';
+    });
     }
 }
