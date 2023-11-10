@@ -21,8 +21,8 @@
         <img src="https://cdn.discordapp.com/attachments/1138806499611779146/1165802486444068885/4fun.png?ex=65482d2c&is=6535b82c&hm=488957ac2bdba0dc3565d36da0c09105294d5ac60a82b099cba50be54b18dc2c&" alt="4Fun Image" class="navbar-image">
         <a href="#SobreNos"><span>Sobre nós</span></a>
         <a href="#Contato"><span>Contato</span></a>
-        <a href="#"><span>Cadastrar</span></a>
-        <a href="#"><span>Entrar</span></a>
+        <a href="{{ route('login') }}"><span>Entrar</span></a>
+        <a href="{{ route('register') }}"><span>Cadastrar</span></a>
     </div>
 
         <p class="TitleSobImg">
