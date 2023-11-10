@@ -6,7 +6,7 @@
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
+                        <img src="https://cdn.discordapp.com/attachments/1138806499611779146/1169737043740463255/4f.png?ex=65567d83&is=65440883&hm=837b1f735876c2bf186d992d4df84769a852a543740950976528e76546e75d5c&" class="block h-12 w-auto fill-current text-gray-800 dark:text-gray-200" />
                     </a>
                 </div>
 

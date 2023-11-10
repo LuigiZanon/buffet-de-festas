@@ -75,7 +75,7 @@
             <div class="Email">Email:</div>
             <div class="Mail">4fun-festas@email.com.br</div>
             <div class="Endereco">Endereço:</div>
-            <p class="End">Avenida Jacinto Pinto Gomes, 872, São Paulo, Campinas</p>
+            <p class="End">Avenida Jacinto Almeida Gomes, 872, São Paulo, Campinas</p>
         </div>
     </div>
 </body>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CRUDpacoteController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Menu\MenuController;
 use Illuminate\Support\Facades\Route;
@@ -16,9 +17,7 @@ use App\Http\Controllers\TesteController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [MenuController::class,'menu'])->name('menu');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -41,8 +40,9 @@ Route::middleware('auth')->group(function () {
     })->name('processarAgendamento');
 });
 
+Route::get('/pacotes', [CRUDpacoteController::class, 'pacote'])->name('CRUD.pacotes');
+    Route::get('/pacotes/criar', [CRUDpacoteController::class, 'CRIApacote'])->name('CRUD.CRIApacotes');
+        Route::post('/pacotes', [CRUDpacoteController::class, 'ADDpacote'])->name('CRUD.ADDpacote');
 
-require __DIR__.'/auth.php';
 
-
-Route::get('/menu', [MenuController::class,'menu'])->name('menu.site');
+/* require __DIR__.'/auth.php'; */
