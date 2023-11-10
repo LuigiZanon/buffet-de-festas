@@ -30,7 +30,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/teste', [TesteController::class,'teste'])
                 ->name('teste')
-                ->middleware('can:access_admin');
+                ->middleware('can.multiple:access_admin,access_comercial');
                 
     Route::post('/processarAgendamento', function () {
         // Lógica para processar o agendamento aqui
