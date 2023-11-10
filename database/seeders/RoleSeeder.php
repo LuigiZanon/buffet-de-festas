@@ -16,5 +16,6 @@ class RoleSeeder extends Seeder
     public function run(): void
     {
         ModelsRole::create(['name' => 'admin']);
+        ModelsRole::create(['name'=> 'comercial']);
     }
 }
