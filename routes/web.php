@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Menu\MenuController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TesteController;
 
@@ -31,14 +32,17 @@ Route::middleware('auth')->group(function () {
     Route::get('/teste', [TesteController::class,'teste'])
                 ->name('teste')
                 ->middleware('can:access_admin');
-                
+
     Route::post('/processarAgendamento', function () {
         // Lógica para processar o agendamento aqui
         // Por exemplo, você pode armazenar os dados no banco de dados
-    
+
         return redirect('/teste')->with('success', 'Agendamento concluído com sucesso!');
     })->name('processarAgendamento');
 });
 
 
 require __DIR__.'/auth.php';
+
+
+Route::get('/menu', [MenuController::class,'menu'])->name('menu.site');
