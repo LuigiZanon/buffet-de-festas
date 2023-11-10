@@ -112,8 +112,8 @@ class AsyncAwsS3Adapter implements FilesystemAdapter, PublicUrlGenerator, Checks
         array $metadataFields = self::EXTRA_METADATA_FIELDS,
     ) {
         $this->prefixer = new PathPrefixer($prefix);
-        $this->visibility = $visibility ?: new PortableVisibilityConverter();
-        $this->mimeTypeDetector = $mimeTypeDetector ?: new FinfoMimeTypeDetector();
+        $this->visibility = $visibility ?? new PortableVisibilityConverter();
+        $this->mimeTypeDetector = $mimeTypeDetector ?? new FinfoMimeTypeDetector();
         $this->forwardedOptions = $forwardedOptions;
         $this->metadataFields = $metadataFields;
     }
@@ -315,14 +315,18 @@ class AsyncAwsS3Adapter implements FilesystemAdapter, PublicUrlGenerator, Checks
     public function copy(string $source, string $destination, Config $config): void
     {
         try {
-            /** @var string $visibility */
-            $visibility = $config->get(Config::OPTION_VISIBILITY) ?: $this->visibility($source)->visibility();
+
+            $visibility = $config->get(Config::OPTION_VISIBILITY);
+
+            if ($visibility === null && $config->get('retain_visibility', true)) {
+                $visibility = $this->visibility($source)->visibility();
+            }
         } catch (Throwable $exception) {
             throw UnableToCopyFile::fromLocationTo($source, $destination, $exception);
         }
 
         $arguments = [
-            'ACL' => $this->visibility->visibilityToAcl($visibility),
+            'ACL' => $this->visibility->visibilityToAcl($visibility ?: 'private'),
             'Bucket' => $this->bucket,
             'Key' => $this->prefixer->prefixPath($destination),
             'CopySource' => $this->bucket . '/' . $this->prefixer->prefixPath($source),

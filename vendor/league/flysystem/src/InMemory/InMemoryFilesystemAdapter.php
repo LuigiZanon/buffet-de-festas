@@ -35,7 +35,7 @@ class InMemoryFilesystemAdapter implements FilesystemAdapter
         private string $defaultVisibility = Visibility::PUBLIC,
         MimeTypeDetector $mimeTypeDetector = null
     ) {
-        $this->mimeTypeDetector = $mimeTypeDetector ?: new FinfoMimeTypeDetector();
+        $this->mimeTypeDetector = $mimeTypeDetector ?? new FinfoMimeTypeDetector();
     }
 
     public function fileExists(string $path): bool
@@ -230,6 +230,10 @@ class InMemoryFilesystemAdapter implements FilesystemAdapter
 
         $this->files[$destinationPath] = $this->files[$sourcePath];
         unset($this->files[$sourcePath]);
+
+        if ($visibility = $config->get(Config::OPTION_VISIBILITY)) {
+            $this->setVisibility($destination, $visibility);
+        }
     }
 
     public function copy(string $source, string $destination, Config $config): void
@@ -242,8 +246,11 @@ class InMemoryFilesystemAdapter implements FilesystemAdapter
         }
 
         $lastModified = $config->get('timestamp', time());
-
         $this->files[$destination] = $this->files[$source]->withLastModified($lastModified);
+
+        if ($visibility = $config->get(Config::OPTION_VISIBILITY)) {
+            $this->setVisibility($destination, $visibility);
+        }
     }
 
     private function preparePath(string $path): string
