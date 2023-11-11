@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\CRUDpacoteController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Menu\MenuController;
@@ -43,6 +44,12 @@ Route::middleware('auth')->group(function () {
 Route::get('/pacotes', [CRUDpacoteController::class, 'pacote'])->name('CRUD.pacotes');
     Route::get('/pacotes/criar', [CRUDpacoteController::class, 'CRIApacote'])->name('CRUD.CRIApacotes');
         Route::post('/pacotes', [CRUDpacoteController::class, 'ADDpacote'])->name('CRUD.ADDpacote');
+
+
+Route::get('/agendamento/reservar', [AgendaController::class, 'RESERVAagenda'])->name('AGENDA.CRIAreserva');
+    Route::get('/agendamento/status', [AgendaController::class, 'STATUSagenda'])->name('AGENDA.STATUSreserva');
+        Route::get('/agendamento/gerenciar', [AgendaController::class, 'EDITAagenda'])->name('AGENDA.ADMreserva');
+            Route::get('/agendamento', [AgendaController::class, 'ADDreserva'])->name('ADD.agenda');
 
 
 /* require __DIR__.'/auth.php'; */
