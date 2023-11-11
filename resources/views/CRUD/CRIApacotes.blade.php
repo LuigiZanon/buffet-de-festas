@@ -22,23 +22,28 @@
         @csrf
         @method('post')
         <div>
-            <label>Titulo</label>
-            <input type="text" name="titulo" placeholder="titulo"/>
+            <label>Titulo do Pacote :</label>
+            <input type="text" name="titulo" placeholder="Ex: Pacote 1"/>
         </div>
         <div>
-            <label>img1</label>
-            <input type="text" name="img1" placeholder="imagem1"/>
+            <label>1ª Imagem(URL):</label>
+            <input type="text" name="img1" placeholder="Ex: https://imgur.com/gallery/NNuR1gp"/>
         </div>
         <div>
-            <label>img2</label>
-            <input type="text" name="img2" placeholder="imagem2"/>
+            <label>2ª Imagem(URL):</label>
+            <input type="text" name="img2" placeholder="Ex: https://imgur.com/gallery/NNuR1gp"/>
         </div>
         <div>
-            <label>img3</label>
-            <input type="text" name="img3" placeholder="imagem3"/>
+            <label>3ª Imagem(URL):</label>
+            <input type="text" name="img3" placeholder="Ex: https://imgur.com/gallery/NNuR1gp"/>
         </div>
         <div >
-                <textarea class="form-control" id="editor" name="desc">descrição do pacote</textarea>
+                <label>Descrição do Pacote:</label>
+                <textarea class="form-control" id="editor" name="desc">Ex: este pacote contém...</textarea>
+        </div>
+        <div>
+            <label>Preço:</label>
+            <input type="text" name="price" placeholder="00.00"/> <label>R$ (Por pessoa)</label>
         </div>
         <div>
             <input type="submit" value="Salvar"/>

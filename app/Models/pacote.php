@@ -14,6 +14,7 @@ class pacote extends Model
         'img1',
         'img2',
         'img3',
-        'desc'
+        'desc',
+        'price'
     ];
 }

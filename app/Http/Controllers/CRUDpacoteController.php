@@ -24,6 +24,7 @@ class CRUDpacoteController extends Controller
             'img2' => 'required|url',
             'img3' => 'required|url',
             'desc' => 'required',
+            'price' => 'required|decimal:0,2'
         ]);
 
         $novoPacote = pacote::create($data);

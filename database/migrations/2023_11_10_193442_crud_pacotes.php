@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('img2');
             $table->string('img3');
             $table->text('desc');
+            $table->decimal('price');
             $table->timestamps();
         });
     }
