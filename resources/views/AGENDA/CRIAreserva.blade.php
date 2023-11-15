@@ -21,12 +21,12 @@
         <form action="{{route('ADD.agenda')}}" method="post">
             @csrf
             <div>
-                <label>E-mail:</label>
-                <input type="text" name="email" placeholder="E-mail"/>
-            </div>
-            <div>
                 <label>Nome do Aniversariante:</label>
                 <input type="text" name="nome" placeholder="Nome do Aniversariante"/>
+            </div>
+            <div>
+                <label>Idade a ser comemorada</label>
+                <input type="text" name="idade" placeholder="idade"/>
             </div>
             <div>
                 <label>Num de Convidados:</label>
@@ -35,7 +35,9 @@
             <div>
                 <label>Pacote:</label>
                 <select name="pacote" required>
-                    <option value="pacote vem aqui">pacote 1</option>
+                    @foreach($pacotes as $pacote)
+                        <option value="{{ $pacote->titulo }}">{{ $pacote->titulo }}</option>
+                    @endforeach
                 </select>
             </div>
             <div>

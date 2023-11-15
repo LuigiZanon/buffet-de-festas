@@ -17,6 +17,7 @@ return new class extends Migration
                 $table->id();
                 $table->string('email');
                 $table->string('nome');
+                $table->integer('idade');
                 $table->integer('convidados');
                 $table->string('pacote');
                 $table->datetime('Dinicio');

@@ -39,17 +39,22 @@ Route::middleware('auth')->group(function () {
 
         return redirect('/teste')->with('success', 'Agendamento concluído com sucesso!');
     })->name('processarAgendamento');
+
+    Route::get('/pacotes', [CRUDpacoteController::class, 'pacote'])->name('CRUD.pacotes');
+        Route::get('/pacotes/criar', [CRUDpacoteController::class, 'CRIApacote'])->name('CRUD.CRIApacotes');
+            Route::post('/pacotes', [CRUDpacoteController::class, 'ADDpacote'])->name('CRUD.ADDpacote');
+
+
+    Route::get('/agendamento', [AgendaController::class, 'RESERVAagenda'])->name('AGENDA.CRIAreserva');
+        Route::get('/agendamento/gerenciar', [AgendaController::class, 'EDITAagenda'])->name('AGENDA.ADMreserva');
+        Route::get('/agendamento/status', [AgendaController::class, 'STATUSagenda'])->name('AGENDA.STATUSreserva');
+
+                Route::post('/agendamento', [AgendaController::class, 'SalvaAgenda'])->name('ADD.agenda');
+                Route::patch('/agendamento/atualizar/{reserva}', [AgendaController::class, 'atualizarStatus'])->name('AGENDA.atualizar');
+                Route::delete('/agendamento/excluir/{reserva}', [AgendaController::class, 'excluirReserva'])->name('AGENDA.excluir');
+
 });
 
-Route::get('/pacotes', [CRUDpacoteController::class, 'pacote'])->name('CRUD.pacotes');
-    Route::get('/pacotes/criar', [CRUDpacoteController::class, 'CRIApacote'])->name('CRUD.CRIApacotes');
-        Route::post('/pacotes', [CRUDpacoteController::class, 'ADDpacote'])->name('CRUD.ADDpacote');
 
 
-Route::get('/agendamento', [AgendaController::class, 'RESERVAagenda'])->name('AGENDA.CRIAreserva');
-    Route::get('/agendamento/gerenciar', [AgendaController::class, 'EDITAagenda'])->name('AGENDA.ADMreserva');
-    Route::get('/agendamento/status', [AgendaController::class, 'STATUSagenda'])->name('AGENDA.STATUSreserva');
-            Route::post('/agendamento', [AgendaController::class, 'SalvaAgenda'])->name('ADD.agenda');
-
-
-/* require __DIR__.'/auth.php'; */
+  require __DIR__.'/auth.php';

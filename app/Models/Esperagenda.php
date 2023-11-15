@@ -12,6 +12,7 @@ class esperagenda extends Model
     protected $fillable = [
         'email',
         'nome',
+        'idade',
         'convidados',
         'pacote',
         'status',
