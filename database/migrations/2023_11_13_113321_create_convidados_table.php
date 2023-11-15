@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('convidados', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('nome');
             $table->string('cpf')->unique;
             $table->string('idade');
             $table->timestamps();

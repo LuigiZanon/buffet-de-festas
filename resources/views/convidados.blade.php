@@ -7,22 +7,25 @@
 </head>
 <body>
     <h2>Cadastro de Pessoas</h2>
-
     <form action="{{ route('registrarConvidados') }}" method="post">
         @csrf
-        <label for="cpf">CPF:</label>
-        <input type="text" name="cpf[]" required>
-        <br>
+        <div id="pessoas">
+            <div class="pessoa">
+                <label for="cpf">CPF:</label>
+                <input type="number" name="pessoas[0][cpf]" inputmode="numeric" required>
+                <br>
 
-        <label for="nome">Nome:</label>
-        <input type="text" name="nome[]" required>
-        <br>
-
-        <!-- Adicione mais campos conforme necessário (por exemplo, idade, email, etc.) -->
+                <label for="nome">Nome:</label>
+                <input type="text" name="pessoas[0][nome]" required>
+                <br>
+                
+                <label for="idade">Idade:</label>
+                <input type="number" name="pessoas[0][idade]" inputmode="numeric" required>
+                <br>
+            </div>
+        </div>
 
         <hr>
-
-        <div id="pessoasExtras"></div>
 
         <button type="button" onclick="adicionarCampo()">Adicionar Pessoa</button>
         <br><br>
@@ -31,20 +34,28 @@
     </form>
 
     <script>
+        var contadorPessoas = 1;
+
         function adicionarCampo() {
-            var divPessoasExtras = document.getElementById('pessoasExtras');
-            var novoCampo = document.createElement('div');
-            novoCampo.innerHTML = `
+            var divPessoas = document.getElementById('pessoas');
+            var novaPessoa = document.createElement('div');
+            novaPessoa.className = 'pessoa';
+            novaPessoa.innerHTML = `
                 <hr>    
                 <label for="cpf">CPF:</label>
-                <input type="text" name="cpf[]" required>
+                <input type="num" name="pessoas[${contadorPessoas}][cpf]" inputmode="numeric" required>
                 <br>
             
                 <label for="nome">Nome:</label>
-                <input type="text" name="nome[]" required>
+                <input type="text" name="pessoas[${contadorPessoas}][nome]" required>
+                <br>
+
+                <label for="idade">Idade:</label>
+                <input type="number" name="pessoas[${contadorPessoas}][idade]" inputmode="numeric" required>
                 <br>
             `;
-            divPessoasExtras.appendChild(novoCampo);
+            divPessoas.appendChild(novaPessoa);
+            contadorPessoas++;
         }
     </script>
 </body>

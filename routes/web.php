@@ -4,6 +4,7 @@ use App\Http\Controllers\CadastroConvidados;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ConvidadosController;
+use App\Http\Controllers\TesteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,10 +40,11 @@ Route::middleware('auth')->group(function () {
     
         return redirect('/teste')->with('success', 'Agendamento concluído com sucesso!');
     })->name('processarAgendamento');
+
+    Route::get('/convidados', [ConvidadosController::class, 'formulario'])->name('convidados');
+    Route::post('/storePeople', [ConvidadosController::class, 'registrarConvidados'])->name('registrarConvidados');
 });
 
-Route::get('/convidados', [ConvidadosController::class, 'formulario']);
-Route::post('/storePeople', [ConvidadosController::class, 'registrarConvidados'])->name('registrarConvidados');
 
 
 require __DIR__.'/auth.php';
