@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+  use Illuminate\Database\Eloquent\Factories\HasFactory;
+  use Illuminate\Database\Eloquent\Model;
 
 class AprovadaAgenda extends Model
 {
@@ -12,9 +12,9 @@ class AprovadaAgenda extends Model
     protected $fillable = [
         'email',
         'nome',
-        'convidados',
-        'pacote',
+       'convidados',
+       'pacote',
         'dia',
         'hora'
     ];
-}
+  }

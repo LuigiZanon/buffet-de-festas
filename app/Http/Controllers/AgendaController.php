@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\EsperaAgenda;
+use App\Models\esperagenda;
 
 class AgendaController extends Controller
 {
@@ -20,18 +20,47 @@ class AgendaController extends Controller
         return view('AGENDA.ADMreserva');
     }
 
-    public function ADDreserva(Request $request){
+    public function SalvaAgenda(Request $request){
 
         $data = $request->validate([
-        'nome' => 'required',
-        'convidados' => 'required',
+        'email' => 'required|email',
+        'nome' => 'required|string',
+        'convidados' => 'required|integer',
         'pacote' => 'required',
-        'dia' => 'required',
-        'hora' => 'required'
+        'Dinicio' => 'required|date|after_or_equal:now',
+        'Dfim' => 'required|date|after:Dinicio',
         ]);
 
-        $novoPedido = EsperaAgenda::create($data);
 
-        return redirect(route('???'));
+        $data['Dinicio'] = $this->formatDate($data['Dinicio']);
+        $data['Dfim'] = $this->formatDate($data['Dfim']);
+
+        if (!$data['Dinicio']->isSameDay($data['Dfim'])) {
+            return redirect()->back()->withErrors(['Dfim' => 'A festa deve ocorrer no mesmo dia.']);
+        }
+
+        if (!$this->horaValida($data['Dinicio']) || !$this->horaValida($data['Dfim'])) {
+            return redirect()->back()->withErrors(['Dinicio' => 'O horário deve estar entre 10h e 22h.']);
+        }
+
+        $data['status'] = 0;
+
+        $agenda = new esperagenda($data);
+
+        $agenda->save();
+
+        return redirect(route('AGENDA.STATUSreserva'));
     }
+
+    private function formatDate($dateTime)
+{
+    return \Carbon\Carbon::parse($dateTime);
+}
+
+private function horaValida($dateTime)
+{
+    $hora = $this->formatDate($dateTime)->format('H:i');
+    return $hora >= '10:00' && $hora <= '22:00';
+}
+
 }

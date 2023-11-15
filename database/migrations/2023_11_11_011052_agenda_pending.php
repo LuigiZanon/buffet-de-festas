@@ -13,14 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-            Schema::create('EsperaAgendas', function (Blueprint $table) {
+            Schema::create('esperagendas', function (Blueprint $table) {
                 $table->id();
                 $table->string('email');
                 $table->string('nome');
                 $table->integer('convidados');
                 $table->string('pacote');
-                $table->date('dia');
-                $table->time('hora');
+                $table->datetime('Dinicio');
+                $table->datetime('Dfim');
+                $table->tinyInteger('status')->default(0);
                 $table->timestamps();
             });
     }

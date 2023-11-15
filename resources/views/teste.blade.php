@@ -12,7 +12,7 @@
     <div>
         <h1>Calendário de Agendamento</h1>
 
-        <form action="{{ route('processarAgendamento') }}" method="post">
+        <form action="" method="post">
             @csrf
 
             <label for="data">Escolha o dia:</label>

@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class EsperaAgenda extends Model
+class esperagenda extends Model
 {
     use HasFactory;
 
@@ -14,7 +14,13 @@ class EsperaAgenda extends Model
         'nome',
         'convidados',
         'pacote',
-        'dia',
-        'hora'
+        'status',
+        'Dinicio',
+        'Dfim',
+    ];
+
+    protected $dates = [
+        'Dinicio',
+        'Dfim',
     ];
 }
