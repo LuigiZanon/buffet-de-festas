@@ -61,11 +61,10 @@
                   </td>
                 <td class="w-full lg:w-auto p-3 text-white text-center border border-b text-center block lg:table-cell relative lg:static">
                     <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-sans uppercase">Ações</span>
-                    <a href="#" class="text-white hover:text-blue-600 underline">Detalhes</a>
                     <form method="POST" action="{{ route('AGENDA.excluirANI', $reserva->id) }}" onsubmit="return confirmarCancelar()">
                         @csrf
                         @method('delete')
-                        <button type="submit" class="text-white hover:text-red-600 underline pl-6">Cancelar</button>
+                        <button type="submit" class="text-white hover:text-red-600 center underline">Cancelar</button>
                     </form>
                     <script>
                         function confirmarCancelar() {
