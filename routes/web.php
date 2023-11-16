@@ -63,6 +63,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/pesquisa/ADM', [pesquisaController::class, 'ADMpesquisa'])->name('ADM.pesquisa');
     Route::get('/pesquisa/resultado', [pesquisaController::class, 'RESpesquisa'])->name('RES.pesquisa');
         Route::post('/pesquisa/resultado', [pesquisaController::class, 'SALVApesquisa'])->name('SALVA.pesquisa');
+        
 });
 
 

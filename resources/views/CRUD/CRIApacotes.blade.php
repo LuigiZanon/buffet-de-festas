@@ -1,14 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+<link rel="stylesheet" type="text/css" href="caixa.css">
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('Dashboard') }}
+        </h2>
+    </x-slot>
 
-</head>
-<body>
-    <h1>Criar produtos</h1>
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900 dark:text-gray-100">
     <div>
         @if($errors->any())
         <ul>
@@ -23,32 +24,40 @@
         @method('post')
         <div>
             <label>Titulo do Pacote :</label>
-            <input type="text" name="titulo" placeholder="Ex: Pacote 1"/>
+            <input type="text" name="titulo" placeholder="Ex: Pacote 1" class="w-full bg-gray-800 rounded-lg p-2" style="border:0px"/>
         </div>
         <div>
-            <label>1ª Imagem(URL):</label>
-            <input type="text" name="img1" placeholder="Ex: https://imgur.com/gallery/NNuR1gp"/>
+            <label>1ª Imagem(URL) :</label>
+            <input type="text" name="img1" placeholder="Ex: https://imgur.com/gallery/NNuR1gp" class="w-full bg-gray-800 rounded-lg p-2" style="border:0px"/>
         </div>
         <div>
             <label>2ª Imagem(URL):</label>
-            <input type="text" name="img2" placeholder="Ex: https://imgur.com/gallery/NNuR1gp"/>
+            <input type="text" name="img2" placeholder="Ex: https://imgur.com/gallery/NNuR1gp" class="w-full bg-gray-800 rounded-lg p-2" style="border:0px"/>
         </div>
         <div>
             <label>3ª Imagem(URL):</label>
-            <input type="text" name="img3" placeholder="Ex: https://imgur.com/gallery/NNuR1gp"/>
+            <input type="text" name="img3" placeholder="Ex: https://imgur.com/gallery/NNuR1gp" class="w-full bg-gray-800 rounded-lg p-2" style="border:0px"/>
         </div>
         <div >
                 <label>Descrição do Pacote:</label>
                 <textarea class="form-control" id="editor" name="desc">Ex: este pacote contém...</textarea>
         </div>
+        
         <div>
             <label>Preço:</label>
-            <input type="text" name="price" placeholder="00.00"/> <label>R$ (Por pessoa)</label>
+            <input type="text" name="price" placeholder="00.00 R$ (Por Pessoa)" class="w-full bg-gray-800 rounded-lg p-2" style="border:0px"/>
         </div>
-        <div>
-            <input type="submit" value="Salvar"/>
-        </div>
+        <button type="submit"
+  class="middle none center rounded-lg bg-pink-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+  data-ripple-light="true"
+>
+  Salvar
+</button>
+    
+</div>
+
     </form>
+    
             <script src="https://cdn.ckeditor.com/ckeditor5/37.0.1/classic/ckeditor.js"></script>
             <script>
                 ClassicEditor
@@ -57,5 +66,11 @@
                            console.error( error );
                        } );
             </script>
-</body>
-</html>
+  
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/@material-tailwind/html@latest/scripts/ripple.js"></script>
+</x-app-layout>

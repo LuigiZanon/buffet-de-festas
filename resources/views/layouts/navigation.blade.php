@@ -18,9 +18,13 @@
                     <x-nav-link :href="route('MENU.agenda')" :active="request()->routeIs('MENU.agenda')">
                         {{ __('Agendamentos') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('CRUD.CRIApacotes')" :active="request()->routeIs('CRUD.CRIApacotes')">
+                        {{ __('Criar Pacote') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('FAZ.pesquisa')" :active="request()->routeIs('FAZ.pesquisa')">
                         {{ __('Pós-festa') }}
                     </x-nav-link>
+                    
 
                 </div>
             </div>
