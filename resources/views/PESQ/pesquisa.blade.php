@@ -1,18 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Pesquisa de Satisfação</title>
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <style>
-        .hidden {
-            display: none;
-        }
-    </style>
-</head>
-<body>
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('Dashboard') }}
+        </h2>
+    </x-slot>
+
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900 dark:text-gray-100">
+
     <h1>Formulário de Feedback</h1>
 
     <form action="{{route('SALVA.pesquisa')}}" method="post">
@@ -130,5 +127,9 @@
             });
         });
     </script>
-</body>
-</html>
+
+</div>
+</div>
+</div>
+</div>
+</x-app-layout>

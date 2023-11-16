@@ -7,6 +7,7 @@ use App\Http\Controllers\Menu\MenuController;
 use App\Http\Controllers\pesquisaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TesteController;
+use App\Models\esperagenda;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,10 @@ use App\Http\Controllers\TesteController;
 Route::get('/', [MenuController::class,'menu'])->name('menu');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+
+    $reservas = esperagenda::all();
+
+    return view('dashboard', compact('reservas'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -45,14 +49,15 @@ Route::middleware('auth')->group(function () {
         Route::get('/pacotes/criar', [CRUDpacoteController::class, 'CRIApacote'])->name('CRUD.CRIApacotes');
             Route::post('/pacotes', [CRUDpacoteController::class, 'ADDpacote'])->name('CRUD.ADDpacote');
 
-
-    Route::get('/agendamento', [AgendaController::class, 'RESERVAagenda'])->name('AGENDA.CRIAreserva');
+    Route::get('/agendamento', [AgendaController::class, 'MENUagenda'])->name('MENU.agenda');
+    Route::get('/agendamento/agendar', [AgendaController::class, 'RESERVAagenda'])->name('AGENDA.CRIAreserva');
         Route::get('/agendamento/gerenciar', [AgendaController::class, 'EDITAagenda'])->name('AGENDA.ADMreserva');
         Route::get('/agendamento/status', [AgendaController::class, 'STATUSagenda'])->name('AGENDA.STATUSreserva');
 
                 Route::post('/agendamento', [AgendaController::class, 'SalvaAgenda'])->name('ADD.agenda');
                 Route::patch('/agendamento/atualizar/{reserva}', [AgendaController::class, 'atualizarStatus'])->name('AGENDA.atualizar');
                 Route::delete('/agendamento/excluir/{reserva}', [AgendaController::class, 'excluirReserva'])->name('AGENDA.excluir');
+                Route::delete('/agendamento/excluirANI/{reserva}', [AgendaController::class, 'excluirReservaANI'])->name('AGENDA.excluirANI');
 
     Route::get('/pesquisa', [pesquisaController::class, 'FAZpesquisa'])->name('FAZ.pesquisa');
     Route::get('/pesquisa/ADM', [pesquisaController::class, 'ADMpesquisa'])->name('ADM.pesquisa');

@@ -12,6 +12,12 @@ use Illuminate\Support\Facades\Auth;
 
 class AgendaController extends Controller
 {
+
+    public function MENUagenda(){
+
+        return view('AGENDA.MENUreserva');
+    }
+
     public function RESERVAagenda(){
 
         $pacotes = pacote::all();
@@ -43,6 +49,13 @@ class AgendaController extends Controller
     $reserva->delete();
 
     return redirect()->route('AGENDA.ADMreserva');
+    }
+
+    public function excluirReservaANI(esperagenda $reserva)
+    {
+    $reserva->delete();
+
+    return redirect()->route('AGENDA.STATUSreserva');
     }
 
     public function EDITAagenda(){
