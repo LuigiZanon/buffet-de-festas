@@ -4,6 +4,7 @@ use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\CRUDpacoteController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Menu\MenuController;
+use App\Http\Controllers\pesquisaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TesteController;
 
@@ -53,8 +54,11 @@ Route::middleware('auth')->group(function () {
                 Route::patch('/agendamento/atualizar/{reserva}', [AgendaController::class, 'atualizarStatus'])->name('AGENDA.atualizar');
                 Route::delete('/agendamento/excluir/{reserva}', [AgendaController::class, 'excluirReserva'])->name('AGENDA.excluir');
 
+    Route::get('/pesquisa', [pesquisaController::class, 'FAZpesquisa'])->name('FAZ.pesquisa');
+    Route::get('/pesquisa/ADM', [pesquisaController::class, 'ADMpesquisa'])->name('ADM.pesquisa');
+    Route::get('/pesquisa/resultado', [pesquisaController::class, 'RESpesquisa'])->name('RES.pesquisa');
+        Route::post('/pesquisa/resultado', [pesquisaController::class, 'SALVApesquisa'])->name('SALVA.pesquisa');
 });
-
 
 
   require __DIR__.'/auth.php';
