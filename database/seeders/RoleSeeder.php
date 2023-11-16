@@ -17,5 +17,6 @@ class RoleSeeder extends Seeder
     {
         ModelsRole::create(['name' => 'admin']);
         ModelsRole::create(['name'=> 'comercial']);
+        ModelsRole::create(['name'=> 'operacional']);
     }
 }

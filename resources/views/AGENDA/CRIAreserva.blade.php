@@ -62,6 +62,22 @@
                             </div>
 
                         </form>
+                        @if(isset($pacote))
+                        <div class="mt-8">
+                            <h2 class="text-lg font-semibold">{{ $pacote->titulo }}</h2>
+                            <div class="flex space-x-4 mt-4">
+                                <!-- Exemplo de exibição de imagens (substitua com suas próprias imagens e estilos) -->
+                                <img src="{{ asset($pacote->img1) }}" alt="{{ $pacote->titulo }}" class="w-20 h-20 object-cover rounded">
+                                <img src="{{ asset($pacote->img2) }}" alt="{{ $pacote->titulo }}" class="w-20 h-20 object-cover rounded">
+                                <img src="{{ asset($pacote->img3) }}" alt="{{ $pacote->titulo }}" class="w-20 h-20 object-cover rounded">
+                            </div>
+                            <?php
+	                        $data = str_replace( '&', '&', $pacote->desc );
+                            ?>
+                            <textarea name="content" id="editor"><?= $pacote->desc ?></textarea>
+                            <p class="mt-2">Preço: R$ {{ $pacote->price }}</p>
+                        </div>
+                    @endif
                       <!-- Ripple Effect from cdn -->
                       <script src="https://unpkg.com/@material-tailwind/html@latest/scripts/ripple.js"></script>
                     </div>
