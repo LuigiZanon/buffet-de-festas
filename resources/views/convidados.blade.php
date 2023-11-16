@@ -1,3 +1,9 @@
+@if(session('success'))
+    <div style="color: green;">
+        {{ session('success') }}
+    </div>
+@endif
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
