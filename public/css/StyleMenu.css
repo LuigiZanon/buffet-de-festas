@@ -1,0 +1,399 @@
+body {
+    background-color: #9250B1;
+}
+
+.container {
+  max-width: 100%;
+}
+
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #8754d4; /* Change this to your desired background color */
+    color: #fff; /* Change this to your desired text color */
+    padding: 0px 0;
+    font-size: x-large;
+    text-align: right;
+    border-radius: 0 0 10px 10px;
+    z-index: 999;
+}
+
+.navbar-image {
+  position: absolute;
+  left: 50px;
+  top: 50%;
+  transform: translateY(-50%); /* Vertically center the image */
+  width: 200px; /* Adjust the width as needed */
+  height: auto;
+}
+
+/* Style the links within the navigation bar */
+.navbar a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  padding: 40px 20px; /* Adjust the padding as needed */
+  position: relative;
+  display: inline-block;
+  margin: 0;
+}
+
+.navbar a::before {
+  content: "";
+  position: absolute;
+  width: calc(100% + 5px); /* Full width of the link */
+  height: 100%; /* Full height of the link */
+  background-color: #754AB6; /* Change to your desired button color */
+  opacity: 0; /* Initially transparent */
+  top: 0;
+  left: -1px;
+  transition: opacity 0.2s; /* Smooth transition on hover */
+  z-index: -1; /* Place buttons behind the text */
+}
+
+.navbar a::after {
+  content: "";
+  position: absolute;
+  width: 1px; /* Adjust the line width as needed */
+  height: 100%;
+  background-color: rgba(65, 16, 98, 0.36); /* Line color with opacity */
+  top: 0;
+  right: -5px;
+}
+
+.navbar a:hover::before {
+  opacity: 1; /* Fully opaque when hovered */
+}
+
+/* Remove the vertical line from the last link */
+.navbar a:last-child::after {
+    display: none;
+}
+
+.navbar a:last-child::before {
+border-radius: 0 0 15px 0px;
+}
+
+.ImgLocal {
+  position: fixed;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  object-fit: cover;
+}
+
+.LogoSobreIMG {
+  position: absolute;
+  height: 20px;
+  top: 1000px;
+  left: 50%;
+  transform: translate(-50%);
+  width: 30%;
+  height: auto;
+
+}
+
+
+
+.BoxSobre {
+    position: absolute;
+    width: 1200px;
+    height: 424px;
+    top: 1422px;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: #f486f6;
+    border-radius: 37px;
+    box-shadow: 9px 9px 18px 11px #00000040;
+  }
+
+  .SobreMarker{
+    position :relative;
+    top: -150px;
+  }
+
+  .SobreTitle {
+    position: absolute;
+    width: 320px;
+    height: 117px;
+    top: 0;
+    left: 0;
+    font-family: "Ubuntu-Bold", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 40px;
+    text-align: center;
+    letter-spacing: -0.4px;
+    line-height: 170px;
+  }
+
+  .SobreTxt {
+    position: absolute;
+    width: 1100px;
+    top: 100px;
+    left: calc(50% + 10px);
+    transform: translate(-50%);
+    font-family: "Ubuntu-Medium", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 25px;
+    letter-spacing: -0.4px;
+    line-height: 51.5px;
+  }
+
+  .DiversaoTitle {
+    position: absolute;
+    width: 347px;
+    height: 117px;
+    top: 2095px;
+    left: 1180px;
+    font-family: "Ubuntu-Bold", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 40px;
+    text-align: center;
+    letter-spacing: -0.4px;
+    line-height: 20px;
+}
+
+.PLAYGROUND {
+    width: 720px;
+    height: auto;
+    top: 2070px; /* Adjust the top position */
+    left: 125px; /* Adjust the left position */
+    position: absolute;
+    object-fit: cover;
+    border-radius: 37px;
+    box-shadow: 9px 9px 18px 11px #00000040;
+}
+
+.DiversaoTxt {
+    position: absolute;
+    width: 550px;
+    height: 456px;
+    top: 2115px;
+    left: 1080px;
+    font-family: "Ubuntu-Medium", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 25px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 56.5px;
+}
+
+
+  .line-4 {
+    position: absolute;
+    width: 4px;
+    height: 716px;
+    top: 1998px;
+    left: 963px;
+  }
+
+  .line-5 {
+    position: absolute;
+    width: 4px;
+    height: 786px;
+    top: 2876px;
+    left: 960px;
+  }
+
+
+
+.MenuTitle {
+    position: absolute;
+    width: 841px; /* Adjust width */
+    height: 94px; /* Adjust height */
+    top: 2960px; /* Adjust top position */
+    left: 80px; /* Adjust left position */
+    font-family: "Viga-Regular", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 40px;
+    text-align: center;
+    letter-spacing: -0.4px;
+    line-height: 20px;
+}
+
+.COMIDA {
+  width: 720px;
+  height: auto;
+  top: 2949px;
+  right: 125px; /* Adjust right distance to match PLAYGROUND */
+  position: absolute;
+  object-fit: cover;
+  border-radius: 37px;
+  box-shadow: 9px 9px 18px 11px #00000040;
+}
+
+.MenuTxt {
+    /* Adjust the width, height, top, and left values to fit the removed container's space */
+    position: absolute;
+    width: 550px; /* Adjust width */
+    height: 456px; /* Adjust height */
+    top: 2990px; /* Adjust top position */
+    right: 1080px; /* Adjust left position */
+    font-family: "Viga-Regular", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 25px;
+    text-align: center;
+    letter-spacing: 0px;
+    line-height: 56.5px;
+}
+
+  .ContatoFix {
+    position: absolute;
+    width: 979px;
+    height: 464px;
+    top: 5044px;
+    left: 246px;
+  }
+
+  .ContatoFix .Contato {
+    position: absolute;
+    width: 264px;
+    height: 92px;
+    top: 0;
+    left: 582px;
+    font-family: "Ubuntu-Medium", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 60px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 56.5px;
+  }
+
+  .ContatoFix .Tel {
+    position: absolute;
+    width: 190px;
+    height: 53px;
+    top: 107px;
+    left: 619px;
+    font-family: "Ubuntu-Medium", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 40px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 56.5px;
+    white-space: nowrap;
+  }
+
+  .ContatoFix .TelNum {
+    width: 167px;
+    height: 45px;
+    top: 182px;
+    left: 670px;
+    position: absolute;
+    font-family: "Ubuntu-Medium", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 40px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 56.5px;
+    white-space: nowrap;
+  }
+
+  .ContatoFix .TelIcon {
+    width: 44px;
+    height: 44px;
+    top: 184px;
+    left: 619px;
+    position: absolute;
+    object-fit: cover;
+  }
+
+  .ContatoFix .TelIcon2 {
+    width: 44px;
+    height: 44px;
+    top: 251px;
+    left: 619px;
+    position: absolute;
+    object-fit: cover;
+  }
+
+  .ContatoFix .TelNum2 {
+    width: 159px;
+    height: 54px;
+    top: 246px;
+    left: 674px;
+    position: absolute;
+    font-family: "Ubuntu-Medium", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 40px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 56.5px;
+    white-space: nowrap;
+  }
+
+  .ContatoFix .Email {
+    position: absolute;
+    width: 152px;
+    height: 34px;
+    top: 349px;
+    left: 638px;
+    font-family: "Ubuntu-Medium", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 40px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 56.5px;
+    white-space: nowrap;
+  }
+
+  .ContatoFix .Mail {
+    width: 498px;
+    height: 53px;
+    top: 411px;
+    left: 465px;
+    font-size: 40px;
+    letter-spacing: 0;
+    line-height: 56.5px;
+    position: absolute;
+    font-family: "Ubuntu-Medium", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .ContatoFix .Endereco {
+    position: absolute;
+    width: 207px;
+    height: 36px;
+    top: 123px;
+    left: 132px;
+    font-family: "Ubuntu-Medium", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 40px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 56.5px;
+    white-space: nowrap;
+  }
+
+  .ContatoFix .End {
+    position: absolute;
+    width: 472px;
+    height: 89px;
+    top: 226px;
+    left: 0;
+    font-family: "Ubuntu-Medium", Helvetica;
+    font-weight: 500;
+    color: #ffffff;
+    font-size: 40px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: 56.5px;
+  }
