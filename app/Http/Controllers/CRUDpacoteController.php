@@ -8,8 +8,30 @@ use Illuminate\Http\Request;
 
 class CRUDpacoteController extends Controller
 {
+
+    public function excluirPacote($pacoteId)
+{
+    $pacote = pacote::find($pacoteId);
+
+    if (!$pacote) {
+        // Tratar o caso em que o pacote não foi encontrado
+        abort(404);
+    }
+
+    $pacote->delete();
+
+    return redirect()->route('CRUD.pacotes');
+}
+
+    public function MENUpacotes(){
+
+        return view('CRUD.MENUpacotes');
+    }
+
     public function pacote(){
-        return view('CRUD.pacotes');
+        $pacotes = pacote::all();
+
+        return view('CRUD.pacotes', compact('pacotes'));
     }
 
     public function CRIApacote(){
@@ -31,4 +53,12 @@ class CRUDpacoteController extends Controller
 
         return redirect(route('CRUD.pacotes'));
     }
+
+    public function getPacoteInfo($id)
+{
+    $pacote = Pacote::where('id', $id)->first();
+
+    return response()->json($pacote);
+}
+
 }

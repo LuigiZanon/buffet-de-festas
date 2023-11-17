@@ -19,7 +19,7 @@ return new class extends Migration
                 $table->string('nome');
                 $table->integer('idade');
                 $table->integer('convidados');
-                $table->string('pacote');
+                $table->integer('pacote');
                 $table->datetime('Dinicio');
                 $table->datetime('Dfim');
                 $table->tinyInteger('status')->default(0);

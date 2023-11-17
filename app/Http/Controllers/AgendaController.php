@@ -90,7 +90,7 @@ class AgendaController extends Controller
         'nome' => 'required|string',
         'idade' => 'required|integer',
         'convidados' => 'required|integer',
-        'pacote' => 'required|exists:pacotes,titulo',
+        'pacote' => 'required|exists:pacotes,id',
         'Dinicio' => 'required|date|after_or_equal:now',
         'Dfim' => 'required|date|after:Dinicio',
         ]);

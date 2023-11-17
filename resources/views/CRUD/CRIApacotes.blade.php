@@ -10,9 +10,14 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
+                    <a href="{{ route('MENU.pacotes') }}" class="text-white dark:text-pink-200 hover:underline">Voltar</a>
+
     <div>
         @if($errors->any())
-        <ul>
+        <div class="font-medium text-red-600">
+            {{__('Opa! Algo deu errado!')}}
+        </div>
+        <ul class="mt-3 list-disc list-inside texte-sm text-red-600">
             @foreach($errors->all() as $error)
                 <li>{{$error}}</li>
             @endforeach
