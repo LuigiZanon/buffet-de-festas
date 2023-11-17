@@ -42,10 +42,10 @@
                 <label>Descrição do Pacote:</label>
                 <textarea class="form-control" id="editor" name="desc">Ex: este pacote contém...</textarea>
         </div>
-        
+
         <div>
-            <label>Preço:</label>
-            <input type="text" name="price" placeholder="00.00 R$ (Por Pessoa)" class="w-full bg-gray-800 rounded-lg p-2" style="border:0px"/>
+            <label>Preço(R$ Por Pessoa):</label>
+            <input type="text" name="price" placeholder="00.00 R$" class="w-full bg-gray-800 rounded-lg p-2" style="border:0px"/>
         </div>
         <button type="submit"
   class="middle none center rounded-lg bg-pink-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
@@ -53,24 +53,26 @@
 >
   Salvar
 </button>
-    
+
 </div>
 
     </form>
-    
+
             <script src="https://cdn.ckeditor.com/ckeditor5/37.0.1/classic/ckeditor.js"></script>
             <script>
                 ClassicEditor
                     .create( document.querySelector( '#editor' ) )
                        .catch( error => {
                            console.error( error );
-                       } );
+                       }
+                       );
             </script>
-  
+
+
+                <script src="https://unpkg.com/@material-tailwind/html@latest/scripts/ripple.js"></script>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="https://unpkg.com/@material-tailwind/html@latest/scripts/ripple.js"></script>
 </x-app-layout>
