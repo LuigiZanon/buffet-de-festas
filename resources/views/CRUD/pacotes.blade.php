@@ -33,15 +33,15 @@
                     <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-sans uppercase">Aniversariante</span>
                     {{ $pacote->titulo }}
                 </td>
-                <td class="w-full lg:w-auto p-3 text-white text-center border border-b text-center block lg:table-cell relative lg:static">
+                <td class="square-img w-full p-3 text-white text-center border border-b text-center block lg:table-cell relative lg:static">
                     <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-sans uppercase">Num de Convidados</span>
                     <img src="{{$pacote->img1}}">
                 </td>
-                <td class="w-full lg:w-auto p-3 text-white text-center border border-b text-center block lg:table-cell relative lg:static">
+                <td class="square-img w-full p-3 text-white text-center border border-b text-center block lg:table-cell relative lg:static">
                     <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-sans uppercase">Num de Convidados</span>
                     <img src="{{$pacote->img2}}">
                 </td>
-                <td class="w-full lg:w-auto p-3 text-white text-center border border-b text-center block lg:table-cell relative lg:static">
+                <td class="square-img w-full p-3 text-white text-center border border-b text-center block lg:table-cell relative lg:static">
                     <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-sans uppercase">Data de Inicio</span>
                     <img src="{{$pacote->img3}}">
                 </td>
@@ -67,6 +67,12 @@
         @endforeach
         </tbody>
     </table>
+    <style>.square-img {
+        width: 30%;
+        padding-bottom: 1%; /* Criando um quadrado usando uma proporção de padding */
+        object-fit: cover; /* Garante que a imagem cubra completamente o contêiner */
+    }
+    </style>
                 </div>
             </div>
         </div>
