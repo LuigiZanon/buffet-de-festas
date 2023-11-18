@@ -103,8 +103,9 @@ button:hover {
 </head>
 <body>
     <h2>Cadastro de Pessoas</h2>
-    <form action="{{ route('registrarConvidados') }}" method="post">
+    <form action="{{ route('convidados.registrar') }}" method="post">
         @csrf
+        <input type="hidden" name="pessoas[0][esperagenda_id]" value="{{ $festa->id }}">
         <div id="pessoas">
             <div class="pessoa">
                 <label for="cpf">CPF:</label>
@@ -125,7 +126,7 @@ button:hover {
 
         <button type="button" data-ripple-light="true" onclick="adicionarCampo()">Adicionar Pessoa</button>
         <br><br>
-
+        @csrf
         <button type="submit" data-ripple-light="true">Enviar</button>
     </form>
 
@@ -138,6 +139,7 @@ button:hover {
             novaPessoa.className = 'pessoa';
             novaPessoa.innerHTML = `
                 <hr>
+                <input type="hidden" name="pessoas[${contadorPessoas}][esperagenda_id]" value="{{ $festa->id }}">
                 <label for="cpf">CPF:</label>
                 <input type="num" name="pessoas[${contadorPessoas}][cpf]" inputmode="numeric" required>
                 <br>
@@ -149,6 +151,7 @@ button:hover {
                 <label for="idade">Idade:</label>
                 <input type="number" name="pessoas[${contadorPessoas}][idade]" inputmode="numeric" required>
                 <br>
+
             `;
             divPessoas.appendChild(novaPessoa);
             contadorPessoas++;

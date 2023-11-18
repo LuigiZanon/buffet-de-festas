@@ -71,11 +71,15 @@ Route::middleware('auth')->group(function () {
         Route::post('/pesquisa/resultado', [pesquisaController::class, 'SALVApesquisa'])->name('SALVA.pesquisa');
 
 
-    Route::get('/convidados', [ConvidadosController::class, 'formulario'])->name('convidados');
-    Route::post('/storePeople', [ConvidadosController::class, 'registrarConvidados'])->name('registrarConvidados');
-});
-
-    Route::get('/funcionamento', [funcionamentoController::class, 'EditFuncionamento'])->name('HORAfuncionamento');
+        Route::get('/funcionamento', [funcionamentoController::class, 'EditFuncionamento'])->name('HORAfuncionamento');
         Route::post('/funcionamento/criar', [funcionamentoController::class, 'ADDfunc'])->name('ADD.funcionamento');
+
+    });
+
+
+    Route::get('/convidados/{esperagenda_id}', [ConvidadosController::class, 'formulario'])->name('convidados.formulario');
+    Route::post('/storePeople', [ConvidadosController::class, 'registrarConvidados'])->name('convidados.registrar');
+    Route::get('/convidados/parabens', [ConvidadosController::class, 'sucesso'])->name('obrigadoRoute');
+
 
   require __DIR__.'/auth.php';

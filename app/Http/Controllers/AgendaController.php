@@ -124,7 +124,8 @@ class AgendaController extends Controller
 
         $agenda->save();
 
-        return redirect(route('AGENDA.STATUSreserva'));
+        /**return redirect(route('AGENDA.STATUSreserva', ['esperagenda_id' => $agenda->id]));*/
+        return redirect(route('convidados.formulario', ['esperagenda_id' => $agenda->id]));
     }
 
     private function formatDate($dateTime)
@@ -138,7 +139,6 @@ private function horaValida($dateTime)
 
     $hora = $this->formatDate($dateTime)->format('H:i');
     return $hora >= $funcionamento->horarioMin && $hora <= $funcionamento->horarioMax;
-    dd($hora);
 }
 
 }

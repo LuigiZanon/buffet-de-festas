@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('tabela_produtos', function (Blueprint $table) {
             $table->id(); // Cria uma coluna de ID automática
             $table->string('nome');
-            $table->text('descricao');
+            $table->text('descri');
             $table->decimal('preco', 8, 2);
             $table->timestamps(); // Cria colunas de created_at e updated_at para controle de data e hora
         });
