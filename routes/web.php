@@ -1,6 +1,6 @@
 <?php
 
-/**use App\Http\Controllers\AgendaController;**/
+use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\CRUDpacoteController;
 use App\Http\Controllers\CadastroConvidados;
 use App\Http\Controllers\ProfileController;
