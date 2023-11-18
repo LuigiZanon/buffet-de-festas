@@ -60,8 +60,9 @@ class AgendaController extends Controller
 
     public function EDITAagenda(){
         $reservas = esperagenda::all();
+        $pacotes = pacote::all();
 
-        return view('AGENDA.ADMreserva', compact('reservas'));
+        return view('AGENDA.ADMreserva', compact('reservas', 'pacotes'));
     }
 
     public function verificarConflito($novaReserva)
