@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\esperagenda;
+use App\Models\funcionamento;
 use App\Models\pacote;
 use App\Models\User;
 use Carbon\Carbon;
@@ -93,19 +94,17 @@ class AgendaController extends Controller
         'convidados' => 'required|integer',
         'pacote' => 'required|exists:pacotes,id',
         'Dinicio' => 'required|date|after_or_equal:now',
-        'Dfim' => 'required|date|after:Dinicio',
         ]);
 
+        $funcionamento = funcionamento::first();
+        $funcionamento->horarioMin = Carbon::parse($funcionamento->horarioMin);
+        $funcionamento->horarioMax = Carbon::parse($funcionamento->horarioMax);
 
         $data['Dinicio'] = $this->formatDate($data['Dinicio']);
-        $data['Dfim'] = $this->formatDate($data['Dfim']);
+        $data['Dfim'] = $this->formatDate($data['Dinicio'])->addHours($funcionamento->horasPfesta);
 
-        if (!$data['Dinicio']->isSameDay($data['Dfim'])) {
-            return redirect()->back()->withErrors(['Dfim' => 'A festa deve ocorrer no mesmo dia.']);
-        }
-
-        if (!$this->horaValida($data['Dinicio']) || !$this->horaValida($data['Dfim'])) {
-            return redirect()->back()->withErrors(['Dinicio' => 'O horário deve estar entre 10h e 22h.']);
+        if (!$this->horaValida($data['Dinicio'])) {
+            return redirect()->back()->withErrors(['Dinicio' => "O horário deve estar entre {$funcionamento->horarioMin->format('H:i')} e {$funcionamento->horarioMax->format('H:i')}."]);
         }
 
         $conflitos = $this->verificarConflito($data);
@@ -113,11 +112,7 @@ class AgendaController extends Controller
         if ($conflitos->count() > 0) {
             $conflito = $conflitos->first(); // Apenas pega o primeiro conflito para exemplo
 
-            $mensagem = "Já existe uma festa agendada neste horário. ("
-    . \Carbon\Carbon::parse($conflitos[0]->Dinicio)->format('H:i')
-    . " - "
-    . \Carbon\Carbon::parse($conflitos[0]->Dfim)->format('H:i')
-    . ")";
+            $mensagem = "Já existe uma festa agendada neste horário. (". \Carbon\Carbon::parse($conflitos[0]->Dinicio)->format('H:i'). " - ". \Carbon\Carbon::parse($conflitos[0]->Dfim)->format('H:i'). ")";
             return redirect()->back()->withErrors(['Dinicio' => $mensagem]);
         }
 
@@ -139,8 +134,11 @@ class AgendaController extends Controller
 
 private function horaValida($dateTime)
 {
+    $funcionamento = funcionamento::first();
+
     $hora = $this->formatDate($dateTime)->format('H:i');
-    return $hora >= '10:00' && $hora <= '22:00';
+    return $hora >= $funcionamento->horarioMin && $hora <= $funcionamento->horarioMax;
+    dd($hora);
 }
 
 }

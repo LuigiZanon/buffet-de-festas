@@ -46,13 +46,9 @@
                                     @endforeach
                                 </select>
                             </div>
-                            <div class="flex flex-col items-center mb-4">
+                            <div class="col-span-2 flex items-center justify-center mb-4">
                                 <label for="start_datetime">Data e Hora de Início:</label>
                                 <input type="datetime-local" name="Dinicio" required class="w-full bg-gray-700 rounded-lg p-2"/>
-                            </div>
-                            <div class="flex flex-col items-center mb-4">
-                                <label for="end_datetime">Data e Hora de Fim:</label>
-                                <input type="datetime-local" name="Dfim" required class="w-full bg-gray-700 rounded-lg p-2"/>
                             </div>
                             <div class="col-span-2 flex items-center justify-center">
                             <div id="pacoteInfo" class="mt-8">

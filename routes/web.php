@@ -8,6 +8,7 @@ use App\Http\Controllers\Menu\MenuController;
 use App\Http\Controllers\pesquisaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ConvidadosController;
+use App\Http\Controllers\funcionamentoController;
 use App\Http\Controllers\TesteController;
 use App\Models\esperagenda;
 
@@ -74,6 +75,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/storePeople', [ConvidadosController::class, 'registrarConvidados'])->name('registrarConvidados');
 });
 
-
+    Route::get('/funcionamento', [funcionamentoController::class, 'EditFuncionamento'])->name('HORAfuncionamento');
+        Route::post('/funcionamento/criar', [funcionamentoController::class, 'ADDfunc'])->name('ADD.funcionamento');
 
   require __DIR__.'/auth.php';
