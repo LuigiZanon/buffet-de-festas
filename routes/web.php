@@ -1,11 +1,13 @@
 <?php
 
-use App\Http\Controllers\AgendaController;
+/**use App\Http\Controllers\AgendaController;**/
 use App\Http\Controllers\CRUDpacoteController;
+use App\Http\Controllers\CadastroConvidados;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Menu\MenuController;
 use App\Http\Controllers\pesquisaController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ConvidadosController;
 use App\Http\Controllers\TesteController;
 use App\Models\esperagenda;
 
@@ -67,7 +69,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/pesquisa/resultado', [pesquisaController::class, 'RESpesquisa'])->name('RES.pesquisa');
         Route::post('/pesquisa/resultado', [pesquisaController::class, 'SALVApesquisa'])->name('SALVA.pesquisa');
 
+
+    Route::get('/convidados', [ConvidadosController::class, 'formulario'])->name('convidados');
+    Route::post('/storePeople', [ConvidadosController::class, 'registrarConvidados'])->name('registrarConvidados');
 });
+
 
 
   require __DIR__.'/auth.php';
