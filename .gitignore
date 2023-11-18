@@ -21,3 +21,5 @@ vendor
 ./vendor
 vendor//
 vendor*
+composer.lock
+
