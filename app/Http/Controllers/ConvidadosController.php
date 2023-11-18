@@ -25,4 +25,38 @@ class ConvidadosController extends Controller
     {
         return view('convidados');
     }
+    public function listaConfirmados()
+    {
+        $convidadosConfirmados = Convidado::where('confirmado', true)->get();
+        $todosOsConvidados = Convidado::all(); // Obtém todos os convidados para a lista completa
+        return view('lista-confirmados', compact('convidadosConfirmados', 'todosOsConvidados'));
+    }
+
+    public function confirmarChegada($id)
+    {
+        $convidado = Convidado::find($id);
+        $convidado->confirmado = true;
+        $convidado->save();
+
+        return redirect()->route('lista.confirmados');
+    }
+
+    public function adicionarConvidado(Request $request)
+    {
+        $request->validate([
+            'nome' => 'required|string|max:255',
+            'cpf' => 'nullable|string|max:20',
+            'idade' => 'nullable|integer',
+        ]);
+
+        Convidado::create([
+            'nome' => $request->input('nome'),
+            'confirmado' => false,
+            'cpf' => $request->input('cpf'),
+            'idade' => $request->input('idade'),
+        ]);
+
+        return redirect()->route('lista.confirmados');
+    }
+
 }

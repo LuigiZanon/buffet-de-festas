@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('convidados', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
-            $table->string('cpf')->unique;
-            $table->string('idade');
+            $table->boolean('confirmado')->default(false);
+            $table->string('cpf')->nullable();
+            $table->integer('idade')->nullable();
             $table->timestamps();
         });
     }

@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\CRUDpacoteController;
-use App\Http\Controllers\CadastroConvidados;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Menu\MenuController;
 use App\Http\Controllers\pesquisaController;
@@ -72,6 +71,13 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/convidados', [ConvidadosController::class, 'formulario'])->name('convidados');
     Route::post('/storePeople', [ConvidadosController::class, 'registrarConvidados'])->name('registrarConvidados');
+
+    
+    Route::get('/lista-confirmados', [ConvidadosController::class, 'listaConfirmados'])->name('lista.confirmados');
+    Route::post('/confirmar-chegada/{id}', [ConvidadosController::class, 'confirmarChegada'])->name('confirmar.chegada');
+    Route::post('/adicionar-convidado', [ConvidadosController::class, 'adicionarConvidado'])->name('adicionar.convidado');
+
+    
 });
 
 
