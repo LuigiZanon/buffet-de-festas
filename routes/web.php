@@ -74,12 +74,12 @@ Route::middleware('auth')->group(function () {
         Route::get('/funcionamento', [funcionamentoController::class, 'EditFuncionamento'])->name('HORAfuncionamento');
         Route::post('/funcionamento/criar', [funcionamentoController::class, 'ADDfunc'])->name('ADD.funcionamento');
 
-    });
+});
 
 
     Route::get('/convidados/{esperagenda_id}', [ConvidadosController::class, 'formulario'])->name('convidados.formulario');
     Route::post('/storePeople', [ConvidadosController::class, 'registrarConvidados'])->name('convidados.registrar');
-    Route::get('/convidados/parabens', [ConvidadosController::class, 'sucesso'])->name('obrigadoRoute');
+    Route::get('/obrigado', [ConvidadosController::class, 'sucesso'])->name('obrigadoRoute');
 
 
   require __DIR__.'/auth.php';

@@ -11,7 +11,6 @@ class ConvidadosController extends Controller
 {
     public function registrarConvidados(Request $request)
     {
-
         $pessoas = $request->input('pessoas');
         foreach($pessoas as $pessoa){
             $convidado = new Convidado();
@@ -19,11 +18,10 @@ class ConvidadosController extends Controller
             $convidado->nome = $pessoa['nome'];
             $convidado->idade = $pessoa['idade'];
             $convidado->esperagenda_id = $pessoa['esperagenda_id'];
-
             $convidado->save();
         }
 
-        return redirect(route('obrigadoRoute'));
+        return redirect()->route('obrigadoRoute');
     }
     public function formulario($esperagenda_id)
     {
@@ -33,6 +31,6 @@ class ConvidadosController extends Controller
 
     public function sucesso(){
 
-        return view('menu.obrigado');
+        return view('obrigado');
     }
 }
