@@ -8,6 +8,7 @@ use App\Http\Controllers\Menu\MenuController;
 use App\Http\Controllers\pesquisaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ConvidadosController;
+use App\Http\Controllers\DashController;
 use App\Http\Controllers\funcionamentoController;
 use App\Http\Controllers\TesteController;
 use App\Models\esperagenda;
@@ -31,6 +32,8 @@ Route::get('/dashboard', function () {
 
     return view('dashboard', compact('reservas'));
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/dashboard/{titulo}', [DashController::class, 'selectFesta'])->name('select.Festa');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
