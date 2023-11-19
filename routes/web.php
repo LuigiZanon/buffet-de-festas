@@ -34,6 +34,9 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/dashboard/{titulo}', [DashController::class, 'selectFesta'])->name('select.Festa');
+Route::get('/dashboard/{titulo}/pacote', [DashController::class, 'pacoteFesta'])->name('edita.pacoteFesta');
+Route::get('/dashboard/{titulo}/convidados', [DashController::class, 'convidadosFesta'])->name('edita.convidados');
+    Route::delete('/dashboard/{titulo}/convidados/excluir/{id}', [DashController::class, 'excluirConvidado'])->name('excluir.convidados');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -83,6 +86,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/convidados/{esperagenda_id}', [ConvidadosController::class, 'formulario'])->name('convidados.formulario');
     Route::post('/storePeople', [ConvidadosController::class, 'registrarConvidados'])->name('convidados.registrar');
     Route::get('/obrigado', [ConvidadosController::class, 'sucesso'])->name('obrigadoRoute');
+
 
 
   require __DIR__.'/auth.php';
