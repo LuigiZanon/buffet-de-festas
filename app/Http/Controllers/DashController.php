@@ -31,10 +31,9 @@ public function pacoteFesta($titulo){
                           ->where('email', $user->email)
                           ->first();
 
-    $pacote = pacote::where('id', $reserva->pacote)
-                    ->first();
+    $pacotes = pacote::all();
 
-    return view('FESTA.pacoteFesta', compact('reserva', 'pacote'));
+    return view('FESTA.pacoteFesta', compact('reserva', 'pacotes'));
 }
 
 public function convidadosFesta($titulo){
@@ -63,5 +62,19 @@ public function excluirConvidado($titulo, $id)
     return redirect()->route('edita.convidados', compact('titulo'));
     }
 
+    public function atualizarPacote($titulo, $idReserva, Request $request)
+{
+
+
+    $pacoteNovo = $request->input('pacote');
+    // Atualize o valor 'pacote' na tabela 'esperagendas'
+    $reserva = esperagenda::find($idReserva);
+
+    $reserva->update([
+        'pacote' => $pacoteNovo,
+    ]);
+
+    return redirect()->route('edita.pacoteFesta', compact('titulo'));
+    }
 
 }

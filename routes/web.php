@@ -35,6 +35,7 @@ Route::get('/dashboard', function () {
 
 Route::get('/dashboard/{titulo}', [DashController::class, 'selectFesta'])->name('select.Festa');
 Route::get('/dashboard/{titulo}/pacote', [DashController::class, 'pacoteFesta'])->name('edita.pacoteFesta');
+    Route::post('/dashboard/{titulo}/pacote/{idReserva}', [DashController::class, 'atualizarPacote'])->name('atualizar.pacote');
 Route::get('/dashboard/{titulo}/convidados', [DashController::class, 'convidadosFesta'])->name('edita.convidados');
     Route::delete('/dashboard/{titulo}/convidados/excluir/{id}', [DashController::class, 'excluirConvidado'])->name('excluir.convidados');
 
