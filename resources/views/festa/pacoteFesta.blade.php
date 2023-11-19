@@ -34,6 +34,7 @@
                             </div>
                             <p class="mt-2">Descrição: {!! $pacote->desc !!}</p>
                             <p class="mt-2">Preço: R$ {{$pacote->price}} por pessoa</p>
+                            <input type="hidden" id="precoAtual" name="precoAtual" value="{{$pacote->price}}">
                             </div>
                         @endif
                         @endforeach
@@ -59,9 +60,10 @@
                                 <button type="submit"
                                     class="rounded-lg bg-pink-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                                     data-ripple-light="true">
-                                    Agendar
+                                    ALTERAR PACOTE
                                 </button>
                             </div>
+
                         </form>
 
 
@@ -98,7 +100,22 @@
                                 <p class="mt-2">Descrição: ${pacote.desc}</p>
                                 <p class="mt-2">Preço: R$ ${pacote.price} por pessoa</p>
                                 </div>
+                                <div id="diferenca-preco" class="col-span-2 flex items-center justify-center mt-4">
+                                </div>
                                 `;
+
+                                const precoAtualInput = document.getElementById('precoAtual');
+        const precoAtual = parseFloat(precoAtualInput.value);
+
+        // Calcular e exibir a diferença de preço
+        const novoPacoteInfo = await getPacoteInfoFromDatabase(selectedPacote);
+
+        const diferencaPrecoElement = document.getElementById('diferenca-preco');
+        const diferencaPreco = novoPacoteInfo.price - precoAtual;
+        diferencaPrecoElement.innerHTML = `
+        <p>Diferença de preço: R$ ${diferencaPreco.toFixed(2)}</p>
+        `;
+
                             });
 
                             // Função para obter informações do pacote do banco de dados usando o Laravel Eloquent
