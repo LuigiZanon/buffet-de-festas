@@ -3,6 +3,9 @@
 # 4Fun Buffet de Festas
 ## Um website de agendamento e gerenciamento de festas
 
+Link para figma: 
+https://www.figma.com/file/4OjfPZZsBWbsdLAR9M1vFe/Buffet-4fun?type=design&node-id=0%3A1&mode=design&t=3AIX4jWaRFD79JyR-1
+
 ## Dependências
 | Plugin | README |
 | ------ | ------ |
@@ -28,6 +31,10 @@ composer update
 wsl
 ./vendor/bin/sail up --build
 ```
+Em um novo terminal, dê o seguinte comando:
+```sh
+npm run dev
+```
 Agora, dentro do terminal laravel.test-1, dê o migrate.
 ```sh
 php artisan migrate:fresh --seed
@@ -36,3 +43,8 @@ O site deverá estar rodando em:
 ```sh
 localhost/
 ```
+O sistema possui 4 niveis de acesso:
+- Comercial
+- Operacional
+- Administrativo
+- Aniversariante
