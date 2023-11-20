@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('Suas Festas') }}
         </h2>
     </x-slot>
 
@@ -14,7 +14,7 @@
                     <p>Olá {{Auth::user() -> name}}</p>
                     @endcan
                     <div class="flex flex-col items-center space-y-4">
-                    {{ __("SELECIONE A FESTA DESEJADA") }}
+                        {{ __("SELECIONE A FESTA DESEJADA") }}
                     </div>
                     @foreach($reservas as $reserva)
                     @if($reserva->status == 1)

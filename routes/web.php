@@ -35,17 +35,18 @@ Route::get('/dashboard', function () {
     return view('dashboard', compact('reservas'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/dashboard/{titulo}', [DashController::class, 'selectFesta'])->name('select.Festa');
-Route::get('/dashboard/{titulo}/pacote', [DashController::class, 'pacoteFesta'])->name('edita.pacoteFesta');
-    Route::post('/dashboard/{titulo}/pacote/{idReserva}', [DashController::class, 'atualizarPacote'])->name('atualizar.pacote');
-Route::get('/dashboard/{titulo}/convidados', [DashController::class, 'convidadosFesta'])->name('edita.convidados');
-    Route::delete('/dashboard/{titulo}/convidados/excluir/{id}', [DashController::class, 'excluirConvidado'])->name('excluir.convidados');
-    Route::delete('/dashboard/excluir/{id}', [DashController::class, 'excluirFesta'])->name('excluir.reserva');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/dashboard/{titulo}', [DashController::class, 'selectFesta'])->name('select.Festa');
+    Route::get('/dashboard/{titulo}/pacote', [DashController::class, 'pacoteFesta'])->name('edita.pacoteFesta');
+        Route::post('/dashboard/{titulo}/pacote/{idReserva}', [DashController::class, 'atualizarPacote'])->name('atualizar.pacote');
+    Route::get('/dashboard/{titulo}/convidados', [DashController::class, 'convidadosFesta'])->name('edita.convidados');
+        Route::delete('/dashboard/{titulo}/convidados/excluir/{id}', [DashController::class, 'excluirConvidado'])->name('excluir.convidados');
+        Route::delete('/dashboard/excluir/{id}', [DashController::class, 'excluirFesta'])->name('excluir.reserva');
 
     Route::get('/teste', [TesteController::class,'teste'])
                 ->name('teste')
