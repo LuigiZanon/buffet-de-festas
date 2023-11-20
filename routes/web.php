@@ -83,6 +83,14 @@ Route::middleware('auth')->group(function () {
         Route::get('/funcionamento', [funcionamentoController::class, 'EditFuncionamento'])->name('HORAfuncionamento');
         Route::post('/funcionamento/criar', [funcionamentoController::class, 'ADDfunc'])->name('ADD.funcionamento');
 
+        Route::get('/recomedacoes', [recomendaController::class, 'recomendacao'])->name('ver.rec');
+        Route::get('/recomedacoes/editar', [recomendaController::class, 'EditRec'])->name('edit.rec');
+            Route::post('/recomedacoes/editar/editando', [recomendaController::class, 'salvarRec'])->name('salva.rec');
+
+        Route::get('/listas/{id}', [ConvidadosController::class, 'verlista'])->name('ver.lista');
+            Route::patch('/listas/{id}/atualizar/{idP}', [ConvidadosController::class, 'atualizarPresenca'])->name('presenca.atualizar');
+            Route::post('/listas/{id}/extra/', [ConvidadosController::class, 'convidadoExtra'])->name('convidado.extra');
+
 });
 
 
@@ -90,13 +98,5 @@ Route::middleware('auth')->group(function () {
     Route::post('/storePeople', [ConvidadosController::class, 'registrarConvidados'])->name('convidados.registrar');
     Route::get('/obrigado', [ConvidadosController::class, 'sucesso'])->name('obrigadoRoute');
 
-
-    Route::get('/recomedacoes', [recomendaController::class, 'recomendacao'])->name('ver.rec');
-    Route::get('/recomedacoes/editar', [recomendaController::class, 'EditRec'])->name('edit.rec');
-        Route::post('/recomedacoes/editar/editando', [recomendaController::class, 'salvarRec'])->name('salva.rec');
-
-    Route::get('/listas/{id}', [ConvidadosController::class, 'verlista'])->name('ver.lista');
-        Route::patch('/listas/{id}/atualizar/{idP}', [ConvidadosController::class, 'atualizarPresenca'])->name('presenca.atualizar');
-        Route::post('/listas/{id}/extra/', [ConvidadosController::class, 'convidadoExtra'])->name('convidado.extra');
 
   require __DIR__.'/auth.php';
