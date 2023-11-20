@@ -8,6 +8,14 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="fixed top-0 right-0 bg-white dark:bg-gray-800 shadow-md rounded-lg p-4">
+                    <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+                        Pacote de Comidas: {{$pacote->titulo}}
+                    </h2>
+                    <p class="text-gray-600 dark:text-gray-400">
+                        Convidados presentes: {{ count($convidados->where('presente', 1)) }} / {{ count($convidados) }}
+                    </p>
+                </div>
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <a href="{{ route('AGENDA.ADMreserva') }}" class="text-white dark:text-pink-200 hover:underline">Voltar</a>
                     <h1>Festa de {{$reserva->nome}}</h1>

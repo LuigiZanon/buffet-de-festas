@@ -21,7 +21,9 @@
                     <x-nav-link :href="route('MENU.pacotes')" :active="request()->routeIs('MENU.pacotes')">
                         {{ __('Pacotes') }}
                     </x-nav-link>
-
+                    <x-nav-link :href="route('MENU.posfesta')" :active="request()->routeIs('MENU.pacotes')">
+                        {{ __('Pós-Festa') }}
+                    </x-nav-link>
 
                 </div>
             </div>

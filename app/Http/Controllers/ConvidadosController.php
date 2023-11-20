@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Convidado;
 use App\Models\esperagenda;
+use App\Models\pacote;
 
 class ConvidadosController extends Controller
 {
@@ -38,7 +39,11 @@ class ConvidadosController extends Controller
         $convidados = Convidado::where('esperagenda_id', $id)
                                ->get();
 
-        return view('lista', compact('reserva', 'convidados'));
+
+        $pacote = pacote::where('id', $reserva->pacote)
+                        ->first();
+
+        return view('lista', compact('reserva', 'convidados', 'pacote'));
     }
 
     public function atualizarPresenca($id, $idP, Request $request)

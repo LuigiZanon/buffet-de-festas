@@ -13,6 +13,7 @@ use App\Http\Controllers\funcionamentoController;
 use App\Http\Controllers\recomendaController;
 use App\Http\Controllers\TesteController;
 use App\Models\esperagenda;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,7 +76,6 @@ Route::middleware('auth')->group(function () {
                 Route::delete('/agendamento/excluirANI/{reserva}', [AgendaController::class, 'excluirReservaANI'])->name('AGENDA.excluirANI');
 
     Route::get('/pesquisa/{titulo}/{festaID}', [pesquisaController::class, 'FAZpesquisa'])->name('FAZ.pesquisa');
-    Route::get('/pesquisa/ADM', [pesquisaController::class, 'ADMpesquisa'])->name('ADM.pesquisa');
     Route::get('/pesquisa/resultado/{titulo}/{festaID}', [pesquisaController::class, 'RESpesquisa'])->name('RES.pesquisa');
         Route::post('/pesquisa/resultado/{titulo}/{festaID}', [pesquisaController::class, 'SALVApesquisa'])->name('SALVA.pesquisa');
 
@@ -89,6 +89,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/listas/{id}', [ConvidadosController::class, 'verlista'])->name('ver.lista');
             Route::patch('/listas/{id}/atualizar/{idP}', [ConvidadosController::class, 'atualizarPresenca'])->name('presenca.atualizar');
             Route::post('/listas/{id}/extra/', [ConvidadosController::class, 'convidadoExtra'])->name('convidado.extra');
+
+        Route::get('/pos-festas', [pesquisaController::class, 'MenuPF'])->name('MENU.posfesta');
+        Route::get('/pos-festas/resultados', [pesquisaController::class, 'viewResultados'])->name('ver.resultados');
 
 });
 

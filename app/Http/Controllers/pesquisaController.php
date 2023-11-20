@@ -27,11 +27,6 @@ class pesquisaController extends Controller
         return view('PESQ.pesquisaResultado', compact('respostas', 'titulo'));
     }
 
-    public function ADMpesquisa(){
-
-        return view('PESQ.pesquisaADM');
-    }
-
     public function SALVApesquisa(Request $request, $titulo, $festaID){
 
         $user = Auth::user();
@@ -54,5 +49,17 @@ class pesquisaController extends Controller
             $novaPesquisa->save();
 
             return redirect(route('select.Festa', compact('titulo')));
+    }
+
+    public function MenuPF(){
+
+        return view('MENUPF');
+    }
+
+    public function viewResultados(){
+
+        $resultados = pesquisa::all();
+
+        return view('admPesquisa', compact('resultados'));
     }
 }
