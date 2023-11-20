@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\esperagenda;
 use Illuminate\Http\Request;
 use App\Models\pesquisa;
 use App\Models\User;
@@ -10,19 +11,20 @@ use Illuminate\Support\Facades\Auth;
 
 class pesquisaController extends Controller
 {
-    public function FAZpesquisa(){
+    public function FAZpesquisa($titulo, $festaID){
 
         $user = User::all();
-
-        return view('PESQ.pesquisa', compact('user'));
+        $reserva = esperagenda::where('id', $festaID)
+                              ->first();
+        return view('PESQ.pesquisa', compact('user', 'titulo', 'festaID', 'reserva'));
     }
 
-    public function RESpesquisa(){
+    public function RESpesquisa($titulo){
 
         $user = Auth::user();
         $respostas = pesquisa::where('email', $user->email)->get();
 
-        return view('PESQ.pesquisaResultado', compact('respostas'));
+        return view('PESQ.pesquisaResultado', compact('respostas', 'titulo'));
     }
 
     public function ADMpesquisa(){
@@ -30,7 +32,7 @@ class pesquisaController extends Controller
         return view('PESQ.pesquisaADM');
     }
 
-    public function SALVApesquisa(Request $request){
+    public function SALVApesquisa(Request $request, $titulo, $festaID){
 
         $user = Auth::user();
 
@@ -51,6 +53,6 @@ class pesquisaController extends Controller
             $novaPesquisa = new pesquisa($data);
             $novaPesquisa->save();
 
-            return redirect(route('RES.pesquisa'));
+            return redirect(route('select.Festa', compact('titulo')));
     }
 }

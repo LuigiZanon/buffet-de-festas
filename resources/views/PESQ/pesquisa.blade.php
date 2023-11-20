@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('Festa de :titulo > Pesquisa de satisfação', ['titulo' => $titulo]) }}
         </h2>
     </x-slot>
 
@@ -9,10 +9,10 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-
+                    <a href="{{ route('select.Festa', ['titulo' => $titulo]) }}" class="text-white dark:text-pink-200 hover:underline">Voltar</a>
                     <h1>Formulário de Feedback</h1>
 
-                    <form action="{{ route('SALVA.pesquisa') }}" method="post" class="grid grid-cols-2 gap-8">
+                    <form action="{{ route('SALVA.pesquisa', ['festaID' =>$reserva->id, 'titulo' => $reserva->nome]) }}" method="post" class="grid grid-cols-2 gap-8">
                         @if($errors->any())
                             <ul>
                                 @foreach($errors->all() as $error)

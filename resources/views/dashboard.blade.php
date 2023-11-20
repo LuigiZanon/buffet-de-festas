@@ -17,12 +17,21 @@
                     {{ __("SELECIONE A FESTA DESEJADA") }}
                     </div>
                     @foreach($reservas as $reserva)
+                    @if($reserva->status == 1)
                     <div class="flex flex-col items-center space-y-4">
                         <a href="{{ route('select.Festa', ['titulo' => $reserva->nome])}}"
                         class="rounded-lg bg-pink-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                         data-ripple-light="true">
                         Festa do {{$reserva->nome}}
                      </a>
+                     @elseif($reserva->status == 0)
+                    <div class="flex flex-col items-center space-y-4">
+                        <a href="{{ route('AGENDA.STATUSreserva')}}"
+                        class="rounded-lg bg-pink-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                        data-ripple-light="true">
+                        Festa do {{$reserva->nome}}
+                     </a>
+                     @endif
                     @endforeach
                     </div>
 

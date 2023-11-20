@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('STATUS DAS SUAS RESERVAS') }}
+            {{ __('Festa de :reserva > Convidados', ['reserva' => $reservas->nome]) }}
         </h2>
     </x-slot>
 
@@ -9,9 +9,9 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <a href="{{ route('MENU.agenda') }}" class="text-white dark:text-pink-200 hover:underline">Voltar</a>
+                    <a href="{{ route('select.Festa', ['titulo' => $reservas->nome]) }}" class="text-white dark:text-pink-200 hover:underline">Voltar</a>
                     <div class="flex flex-col items-center space-y-4">
-                        <span class="ml-4">{{ __('STATUS DAS SUAS RESERVAS') }}</span>
+                        <span class="ml-4">{{ __('Convidados') }}</span>
                     </div>
 
     <table class="border-collapse w-full">

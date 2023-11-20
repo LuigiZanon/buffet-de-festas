@@ -20,18 +20,14 @@ class ConvidadosController extends Controller
             $convidado->esperagenda_id = $pessoa['esperagenda_id'];
             $convidado->save();
         }
+        $esperagenda_id = $pessoa['esperagenda_id'];
 
-        return redirect()->route('obrigadoRoute');
+        return redirect()->route('convidados.formulario', compact('esperagenda_id'))->with('success', 'Cadastrado com sucesso!');
     }
     public function formulario($esperagenda_id)
     {
         $festa = esperagenda::findOrFail($esperagenda_id);
         return view('convidados', compact('festa'));
-    }
-
-    public function sucesso(){
-
-        return view('obrigado');
     }
 
     public function verlista($id){
@@ -66,6 +62,7 @@ class ConvidadosController extends Controller
                 $convidado->cpf = $pessoa['cpf'];
                 $convidado->nome = $pessoa['nome'];
                 $convidado->idade = $pessoa['idade'];
+                $convidado->presente = $pessoa['presente'];
                 $convidado->esperagenda_id = $pessoa['esperagenda_id'];
                 $convidado->save();
             }

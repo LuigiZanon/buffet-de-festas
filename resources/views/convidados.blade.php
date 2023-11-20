@@ -140,12 +140,12 @@ button:hover {
             novaPessoa.innerHTML = `
                 <hr>
                 <input type="hidden" name="pessoas[${contadorPessoas}][esperagenda_id]" value="{{ $festa->id }}">
-                <label for="cpf">CPF:</label>
-                <input type="num" name="pessoas[${contadorPessoas}][cpf]" inputmode="numeric" required>
-                <br>
-
                 <label for="nome">Nome:</label>
                 <input type="text" name="pessoas[${contadorPessoas}][nome]" required>
+                <br>
+
+                <label for="cpf">CPF:</label>
+                <input type="num" name="pessoas[${contadorPessoas}][cpf]" inputmode="numeric" required>
                 <br>
 
                 <label for="idade">Idade:</label>

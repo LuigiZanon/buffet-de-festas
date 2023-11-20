@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('Agendamentos > Gerenciar reservas > lista de convidados de :reserva', ['reserva' => $reserva->nome]) }}
         </h2>
     </x-slot>
 
@@ -63,6 +63,7 @@
                     <form action="{{ route('convidado.extra', ['id' => $reserva->id]) }}" method="post">
                         @csrf
                         <input type="hidden" name="pessoas[0][esperagenda_id]" value="{{ $reserva->id }}">
+                        <input type="hidden" name="pessoas[0][presente]" value="1">
                         <div id="pessoas">
                             <div class="pessoa">
                                 <label for="nome">Nome:</label>
@@ -97,6 +98,7 @@
                             novaPessoa.innerHTML = `
                                 <hr>
                                 <input type="hidden" name="pessoas[${contadorPessoas}][esperagenda_id]" value="{{ $reserva->id }}">
+                                <input type="hidden" name="pessoas[${contadorPessoas}][presente]" value="1">
                                 <label for="nome">Nome:</label>
                                 <input type="text" name="pessoas[${contadorPessoas}][nome]" required>
                                 <br>

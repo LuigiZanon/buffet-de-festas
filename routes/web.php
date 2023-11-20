@@ -74,10 +74,10 @@ Route::middleware('auth')->group(function () {
                 Route::delete('/agendamento/excluir/{reserva}', [AgendaController::class, 'excluirReserva'])->name('AGENDA.excluir');
                 Route::delete('/agendamento/excluirANI/{reserva}', [AgendaController::class, 'excluirReservaANI'])->name('AGENDA.excluirANI');
 
-    Route::get('/pesquisa', [pesquisaController::class, 'FAZpesquisa'])->name('FAZ.pesquisa');
+    Route::get('/pesquisa/{titulo}/{festaID}', [pesquisaController::class, 'FAZpesquisa'])->name('FAZ.pesquisa');
     Route::get('/pesquisa/ADM', [pesquisaController::class, 'ADMpesquisa'])->name('ADM.pesquisa');
-    Route::get('/pesquisa/resultado', [pesquisaController::class, 'RESpesquisa'])->name('RES.pesquisa');
-        Route::post('/pesquisa/resultado', [pesquisaController::class, 'SALVApesquisa'])->name('SALVA.pesquisa');
+    Route::get('/pesquisa/resultado/{titulo}/{festaID}', [pesquisaController::class, 'RESpesquisa'])->name('RES.pesquisa');
+        Route::post('/pesquisa/resultado/{titulo}/{festaID}', [pesquisaController::class, 'SALVApesquisa'])->name('SALVA.pesquisa');
 
 
         Route::get('/funcionamento', [funcionamentoController::class, 'EditFuncionamento'])->name('HORAfuncionamento');
@@ -96,7 +96,6 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/convidados/{esperagenda_id}', [ConvidadosController::class, 'formulario'])->name('convidados.formulario');
     Route::post('/storePeople', [ConvidadosController::class, 'registrarConvidados'])->name('convidados.registrar');
-    Route::get('/obrigado', [ConvidadosController::class, 'sucesso'])->name('obrigadoRoute');
 
 
   require __DIR__.'/auth.php';

@@ -11,7 +11,7 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
     <h1>Formulário de Feedback - Suas respostas</h1>
 
-    <form action="{{route('SALVA.pesquisa')}}" method="post">
+    <form action="" method="post">
         @foreach($respostas as $resposta)
         <h3>O que achou da navegação em nosso site?</h3>
         <label>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Convidado;
 use App\Models\esperagenda;
 use App\Models\pacote;
+use App\Models\pesquisa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,6 +14,9 @@ class DashController extends Controller
     public function selectFesta($titulo)
 {
     $user = Auth::user();
+    $pesquisa = pesquisa::where('email', $user->email)
+                        ->first();
+                        /**fazer com nome tambem */
 
     // Supondo que você deseja buscar o pacote pelo título na tabela 'pacotes'
     $reserva = esperagenda::where('nome', $titulo)
@@ -20,7 +24,7 @@ class DashController extends Controller
                     ->first();
 
 
-    return view('FESTA.festa', compact('reserva'));
+    return view('FESTA.festa', compact('reserva', 'pesquisa'));
 }
 
 public function pacoteFesta($titulo){
