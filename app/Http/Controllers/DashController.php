@@ -77,4 +77,11 @@ public function excluirConvidado($titulo, $id)
     return redirect()->route('edita.pacoteFesta', compact('titulo'));
     }
 
+    public function excluirFesta($id)
+    {
+        $reserva = esperagenda::find($id);
+        $reserva->delete();
+
+    return redirect()->route('dashboard');
+    }
 }

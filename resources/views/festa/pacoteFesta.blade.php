@@ -113,7 +113,7 @@
         const diferencaPrecoElement = document.getElementById('diferenca-preco');
         const diferencaPreco = novoPacoteInfo.price - precoAtual;
         diferencaPrecoElement.innerHTML = `
-        <p>Diferença de preço: R$ ${diferencaPreco.toFixed(2)}</p>
+        <p>Diferença de preço: R$ ${diferencaPreco.toFixed(2)} p/ pessoa</p>
         `;
 
                             });

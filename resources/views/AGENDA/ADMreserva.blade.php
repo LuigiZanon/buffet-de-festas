@@ -13,6 +13,9 @@
                     <div class="flex flex-col items-center space-y-4">
                         <span class="ml-4">{{ __('GERENCIAR RESERVAS') }}</span>
                     </div>
+                    <div class="flex flex-col items-center space-y-4">
+                        <span class="ml-4">{{ __('PROXIMAS FESTAS') }}</span>
+                    </div>
 
         <table class="border-collapse w-full">
             <thead>
@@ -78,6 +81,7 @@
                             @method('delete')
                             <button type="submit" class="hover:underline hover:text-red-500">Excluir</button>
                         </form>
+                        <a class="hover:underline" href="{{route('ver.lista', ['id' => $reserva->id])}}">Lista de Convidados</a>
                         <script>
                             function confirmarCancelar() {
                                 return confirm('Tem certeza que deseja cancelar?');
@@ -89,6 +93,7 @@
                 @endforeach
             </tbody>
         </table>
+
     </div>
 </div>
 </div>

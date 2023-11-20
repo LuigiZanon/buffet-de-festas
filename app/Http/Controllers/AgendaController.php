@@ -60,7 +60,7 @@ class AgendaController extends Controller
     }
 
     public function EDITAagenda(){
-        $reservas = esperagenda::all();
+        $reservas = esperagenda::orderBy('Dinicio')->get();
         $pacotes = pacote::all();
 
         return view('AGENDA.ADMreserva', compact('reservas', 'pacotes'));
@@ -124,8 +124,8 @@ class AgendaController extends Controller
 
         $agenda->save();
 
-        /**return redirect(route('AGENDA.STATUSreserva', ['esperagenda_id' => $agenda->id]));*/
-        return redirect(route('convidados.formulario', ['esperagenda_id' => $agenda->id]));
+        return redirect(route('AGENDA.STATUSreserva', ['esperagenda_id' => $agenda->id]));
+        /**return redirect(route('convidados.formulario', ['esperagenda_id' => $agenda->id])); */
     }
 
     private function formatDate($dateTime)

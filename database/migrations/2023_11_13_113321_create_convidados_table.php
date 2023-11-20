@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nome');
             $table->string('cpf')->unique;
             $table->string('idade');
+            $table->smallInteger('presente')->default(0);
             $table->unsignedBigInteger('esperagenda_id');
             $table->timestamps();
             $table->foreign('esperagenda_id')->references('id')->on('esperagendas')->onDelete('cascade');

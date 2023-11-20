@@ -33,4 +33,43 @@ class ConvidadosController extends Controller
 
         return view('obrigado');
     }
+
+    public function verlista($id){
+
+        $reserva = esperagenda::where('id', $id)
+                              ->first();
+
+        $convidados = Convidado::where('esperagenda_id', $id)
+                               ->get();
+
+        return view('lista', compact('reserva', 'convidados'));
+    }
+
+    public function atualizarPresenca($id, $idP, Request $request)
+    {
+
+    $convidado = Convidado::where('id', $idP)
+                          ->where('esperagenda_id', $id)
+                          ->first();
+
+    $convidado->presente = $request->status;
+    $convidado->save();
+
+    return redirect()->route('ver.lista', compact('id'));
+    }
+
+    public function convidadoExtra($id, Request $request){
+
+            $pessoas = $request->input('pessoas');
+            foreach($pessoas as $pessoa){
+                $convidado = new Convidado();
+                $convidado->cpf = $pessoa['cpf'];
+                $convidado->nome = $pessoa['nome'];
+                $convidado->idade = $pessoa['idade'];
+                $convidado->esperagenda_id = $pessoa['esperagenda_id'];
+                $convidado->save();
+            }
+
+            return redirect()->route('ver.lista', compact('id'));
+        }
 }

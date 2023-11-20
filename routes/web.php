@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ConvidadosController;
 use App\Http\Controllers\DashController;
 use App\Http\Controllers\funcionamentoController;
+use App\Http\Controllers\recomendaController;
 use App\Http\Controllers\TesteController;
 use App\Models\esperagenda;
 
@@ -38,6 +39,7 @@ Route::get('/dashboard/{titulo}/pacote', [DashController::class, 'pacoteFesta'])
     Route::post('/dashboard/{titulo}/pacote/{idReserva}', [DashController::class, 'atualizarPacote'])->name('atualizar.pacote');
 Route::get('/dashboard/{titulo}/convidados', [DashController::class, 'convidadosFesta'])->name('edita.convidados');
     Route::delete('/dashboard/{titulo}/convidados/excluir/{id}', [DashController::class, 'excluirConvidado'])->name('excluir.convidados');
+    Route::delete('/dashboard/excluir/{id}', [DashController::class, 'excluirFesta'])->name('excluir.reserva');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -89,5 +91,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/obrigado', [ConvidadosController::class, 'sucesso'])->name('obrigadoRoute');
 
 
+    Route::get('/recomedacoes', [recomendaController::class, 'recomendacao'])->name('ver.rec');
+    Route::get('/recomedacoes/editar', [recomendaController::class, 'EditRec'])->name('edit.rec');
+        Route::post('/recomedacoes/editar/editando', [recomendaController::class, 'salvarRec'])->name('salva.rec');
+
+    Route::get('/listas/{id}', [ConvidadosController::class, 'verlista'])->name('ver.lista');
+        Route::patch('/listas/{id}/atualizar/{idP}', [ConvidadosController::class, 'atualizarPresenca'])->name('presenca.atualizar');
+        Route::post('/listas/{id}/extra/', [ConvidadosController::class, 'convidadoExtra'])->name('convidado.extra');
 
   require __DIR__.'/auth.php';

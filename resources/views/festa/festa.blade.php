@@ -36,16 +36,26 @@
          </a>
 
          <div class="flex flex-col items-center space-y-4">
-            <a href=""
-            class="rounded-lg bg-pink-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+            <form method="POST" action="{{ route('excluir.reserva', ['id' => $reserva->id]) }}" onsubmit="return confirmarCancelar()">
+                @csrf
+                @method('delete')
+            <button type="submit" class="rounded-lg bg-pink-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
             data-ripple-light="true">
            Cancelar festa
-         </a>
+            </button>
+            </form>
+
+         <p>Lista de Recomendações:</p>
+
         </div>
 
           <!-- Ripple Effect from cdn -->
           <script src="https://unpkg.com/@material-tailwind/html@latest/scripts/ripple.js"></script>
-
+          <script>
+            function confirmarCancelar() {
+                return confirm('Tem certeza que deseja cancelar?');
+            }
+        </script>
 
 </div>
 </div>

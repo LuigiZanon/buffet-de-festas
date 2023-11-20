@@ -108,12 +108,12 @@ button:hover {
         <input type="hidden" name="pessoas[0][esperagenda_id]" value="{{ $festa->id }}">
         <div id="pessoas">
             <div class="pessoa">
-                <label for="cpf">CPF:</label>
-                <input type="number" name="pessoas[0][cpf]" inputmode="numeric" required>
-                <br>
-
                 <label for="nome">Nome:</label>
                 <input type="text" name="pessoas[0][nome]" required>
+                <br>
+
+                <label for="cpf">CPF:</label>
+                <input type="number" name="pessoas[0][cpf]" inputmode="numeric" required>
                 <br>
 
                 <label for="idade">Idade:</label>
