@@ -8,12 +8,6 @@ use Illuminate\Http\Request;
 
 class recomendaController extends Controller
 {
-    public function recomendacao(){
-
-        $recomendacao = recomenda::all();
-        return view('rec', compact('recomendacao'));
-    }
-
 
     public function salvarRec(Request $request){
 
@@ -36,10 +30,12 @@ class recomendaController extends Controller
         ]);
 
     }
-    return redirect()->route('ver.rec');
+    return redirect()->route('MENU.agenda');
 }
 
     public function EditRec(){
+
+        $recomendacao = recomenda::first();
 
         return View('editRec', compact('recomendacao'));
     }

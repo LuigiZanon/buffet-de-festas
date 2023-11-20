@@ -71,9 +71,6 @@
                         @method('delete')
                         <button type="submit" class="text-white hover:text-red-600 center underline">Cancelar</button>
                     </form>
-                        <label>Cadastrar convidados:</label>
-                    <a href="{{route('convidados.formulario', ['esperagenda_id' => $reserva->id])}}" class="underline hover:text-green-400" name="status" value="1">localhost/convidados/{{$reserva->id}}</a>
-                    </form>
                     <script>
                         function confirmarCancelar() {
                             return confirm('Tem certeza que deseja cancelar?');

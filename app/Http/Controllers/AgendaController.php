@@ -23,8 +23,11 @@ class AgendaController extends Controller
 
         $pacotes = pacote::all();
         $user = User::all();
+        $func = funcionamento::first();
+        $horarioMin = Carbon::parse($func->horarioMin);
+        $horarioMax = Carbon::parse($func->horarioMax);
 
-        return view('AGENDA.CRIAreserva', compact('user', 'pacotes'));
+        return view('AGENDA.CRIAreserva', compact('user', 'pacotes', 'func', 'horarioMin', 'horarioMax'));
     }
 
     public function STATUSagenda(){

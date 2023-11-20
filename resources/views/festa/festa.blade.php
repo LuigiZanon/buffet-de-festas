@@ -53,7 +53,7 @@
             </form>
 
          <p>Lista de Recomendações:</p>
-
+        <p>{!! $recomendacao->rec !!}</p>
         </div>
 
           <!-- Ripple Effect from cdn -->

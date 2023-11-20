@@ -11,7 +11,10 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <a href="{{ route('select.Festa', ['titulo' => $reservas->nome]) }}" class="text-white dark:text-pink-200 hover:underline">Voltar</a>
                     <div class="flex flex-col items-center space-y-4">
-                        <span class="ml-4">{{ __('Convidados') }}</span>
+                        <label>Cadastrar convidados:</label>
+
+                        <a href="{{route('convidados.formulario', ['esperagenda_id' => $reservas->id])}}" class="underline hover:text-green-400" name="status" value="1">localhost/convidados/{{$reservas->id}}</a>
+
                     </div>
 
     <table class="border-collapse w-full">

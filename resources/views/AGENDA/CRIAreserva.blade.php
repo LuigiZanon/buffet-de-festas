@@ -51,6 +51,13 @@
                                 <input type="datetime-local" name="Dinicio" required class="w-full bg-gray-700 rounded-lg p-2"/>
                             </div>
                             <div class="col-span-2 flex items-center justify-center">
+                                <p style="margin: 4px;">Abertura: {{ $horarioMin->format('H:i') }}  </p>
+                                <p style="margin: 4px;">Fechamento: {{ $horarioMax->format('H:i') }}</p>
+                            </div>
+                            <div class="col-span-2 flex items-center justify-center">
+                                <p>Tempo de reserva: {{$func->horasPfesta}} horas por festa</p>
+                            </div>
+                            <div class="col-span-2 flex items-center justify-center">
                             <div id="pacoteInfo" class="mt-8">
                                 <!-- Aqui serão exibidas as informações do pacote selecionado -->
                             </div>

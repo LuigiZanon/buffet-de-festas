@@ -9,6 +9,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
+                    <a href="{{ route('AGENDA.ADMreserva') }}" class="text-white dark:text-pink-200 hover:underline">Voltar</a>
                     <h1>Festa de {{$reserva->nome}}</h1>
 
 
@@ -67,25 +68,33 @@
                         <div id="pessoas">
                             <div class="pessoa">
                                 <label for="nome">Nome:</label>
-                                <input type="text" name="pessoas[0][nome]" required>
+                                <input class="w-full bg-gray-700 rounded-lg p-2" type="text" name="pessoas[0][nome]" required>
                                 <br>
 
                                 <label for="cpf">CPF:</label>
-                                <input type="number" name="pessoas[0][cpf]" inputmode="numeric" required>
+                                <input class="w-full bg-gray-700 rounded-lg p-2" type="number" name="pessoas[0][cpf]" inputmode="numeric" required>
                                 <br>
 
                                 <label for="idade">Idade:</label>
-                                <input type="number" name="pessoas[0][idade]" inputmode="numeric" required>
+                                <input class="w-full bg-gray-700 rounded-lg p-2" type="number" name="pessoas[0][idade]" inputmode="numeric" required>
                                 <br>
                             </div>
                         </div>
 
                         <hr>
 
-                        <button type="button" data-ripple-light="true" onclick="adicionarCampo()">Adicionar Pessoa</button>
+                        <button type="button"
+                                    class="rounded-lg bg-pink-500 py-1 px-2 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                                    data-ripple-light="true" onclick="adicionarCampo()">
+                                    Adicionar Pessoa
+                                </button>
                         <br><br>
                         @csrf
-                        <button type="submit" data-ripple-light="true">Adicionar</button>
+                        <button type="submit"
+                                    class="rounded-lg bg-pink-500 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+                                    data-ripple-light="true">
+                                    Cadastrar
+                                </button>
                     </form>
 
                     <script>
@@ -100,15 +109,15 @@
                                 <input type="hidden" name="pessoas[${contadorPessoas}][esperagenda_id]" value="{{ $reserva->id }}">
                                 <input type="hidden" name="pessoas[${contadorPessoas}][presente]" value="1">
                                 <label for="nome">Nome:</label>
-                                <input type="text" name="pessoas[${contadorPessoas}][nome]" required>
+                                <input class="w-full bg-gray-700 rounded-lg p-2" type="text" name="pessoas[${contadorPessoas}][nome]" required>
                                 <br>
 
                                 <label for="cpf">CPF:</label>
-                                <input type="num" name="pessoas[${contadorPessoas}][cpf]" inputmode="numeric" required>
+                                <input class="w-full bg-gray-700 rounded-lg p-2" type="num" name="pessoas[${contadorPessoas}][cpf]" inputmode="numeric" required>
                                 <br>
 
                                 <label for="idade">Idade:</label>
-                                <input type="number" name="pessoas[${contadorPessoas}][idade]" inputmode="numeric" required>
+                                <input class="w-full bg-gray-700 rounded-lg p-2" type="number" name="pessoas[${contadorPessoas}][idade]" inputmode="numeric" required>
                                 <br>
 
                             `;

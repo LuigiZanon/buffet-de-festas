@@ -23,44 +23,44 @@
 
                         <div class="mb-4">
                             <h3>O que achou da navegação em nosso site?</h3>
-                            <label><input type="radio" name="resposta1" value="Muito boa"> Muito boa</label>
-                            <label><input type="radio" name="resposta1" value="Boa"> Boa</label>
-                            <label><input type="radio" name="resposta1" value="Indiferente"> Indiferente</label>
-                            <label><input type="radio" name="resposta1" value="Ruim"> Ruim</label>
-                            <label><input type="radio" name="resposta1" value="Péssima"> Péssima</label>
+                            <label><input class="bg-gray-700" type="radio" name="resposta1" value="Muito boa"> Muito boa</label>
+                            <label><input class="bg-gray-700" type="radio" name="resposta1" value="Boa"> Boa</label>
+                            <label><input class="bg-gray-700" type="radio" name="resposta1" value="Indiferente"> Indiferente</label>
+                            <label><input class="bg-gray-700" type="radio" name="resposta1" value="Ruim"> Ruim</label>
+                            <label><input class="bg-gray-700" type="radio" name="resposta1" value="Péssima"> Péssima</label>
                         </div>
 
                         <div class="mb-4">
                             <h3>O que achou da comida servida no local?</h3>
-                            <label><input type="radio" name="resposta2" value="Muito boa"> Muito boa</label>
-                            <label><input type="radio" name="resposta2" value="Boa"> Boa</label>
-                            <label><input type="radio" name="resposta2" value="Indiferente"> Indiferente</label>
-                            <label><input type="radio" name="resposta2" value="Ruim"> Ruim</label>
-                            <label><input type="radio" name="resposta2" value="Péssima"> Péssima</label>
+                            <label><input class="bg-gray-700" type="radio" name="resposta2" value="Muito boa"> Muito boa</label>
+                            <label><input class="bg-gray-700" type="radio" name="resposta2" value="Boa"> Boa</label>
+                            <label><input class="bg-gray-700" type="radio" name="resposta2" value="Indiferente"> Indiferente</label>
+                            <label><input class="bg-gray-700" type="radio" name="resposta2" value="Ruim"> Ruim</label>
+                            <label><input class="bg-gray-700" type="radio" name="resposta2" value="Péssima"> Péssima</label>
                         </div>
 
                         <div class="mb-4">
                             <h3>Teve algum problema, desde a reserva da festa até o momento atual?</h3>
-                            <label><input type="radio" name="resposta3" value="Não" class="toggleComentario"> Não</label>
-                            <label><input type="radio" name="resposta3" value="Sim" class="toggleComentario"> Sim</label>
+                            <label><input class="toggleComentario bg-gray-700" type="radio" name="resposta3" value="Não"> Não</label>
+                            <label><input class="toggleComentario bg-gray-700" type="radio" name="resposta3" value="Sim" class="toggleComentario"> Sim</label>
                             <div id="caixaComentario" class="hidden">
                                 <h3>Conte-nos o que houve:</h3>
-                                <textarea id="consideracoes" name="resposta33"></textarea>
+                                <textarea class="bg-gray-700 rounded-lg p-2"" id="consideracoes" name="resposta33"></textarea>
                             </div>
                         </div>
 
                         <div class="mb-4">
                             <h3>Qual a probabilidade de você recomendar o nosso serviço de Buffets a algum amigo ou familiar?</h3>
-                            <label><input type="radio" name="resposta4" value="Muito Provável"> Muito Provável</label>
-                            <label><input type="radio" name="resposta4" value="Provável"> Provável</label>
-                            <label><input type="radio" name="resposta4" value="Incerto"> Incerto</label>
-                            <label><input type="radio" name="resposta4" value="Improvável"> Improvável</label>
-                            <label><input type="radio" name="resposta4" value="Muito Improvável"> Muito Improvável</label>
+                            <label><input class="bg-gray-700" type="radio" name="resposta4" value="Muito Provável"> Muito Provável</label>
+                            <label><input class="bg-gray-700" type="radio" name="resposta4" value="Provável"> Provável</label>
+                            <label><input class="bg-gray-700" type="radio" name="resposta4" value="Incerto"> Incerto</label>
+                            <label><input class="bg-gray-700" type="radio" name="resposta4" value="Improvável"> Improvável</label>
+                            <label><input class="bg-gray-700" type="radio" name="resposta4" value="Muito Improvável"> Muito Improvável</label>
                         </div>
 
                         <div class="mb-4">
                             <h3>Em uma nota de 1 a 10, como você classificaria a sua experiência conosco, no geral?</h3>
-                            <select id="classificacao" name="resposta5">
+                            <select class="bg-gray-700 rounded-lg" id="classificacao" name="resposta5">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -76,7 +76,7 @@
 
                         <div class="mb-4">
                             <h3>Deixe suas considerações Finais, se desejar, abaixo:</h3>
-                            <textarea id="consideracoes" name="resposta6"></textarea>
+                            <textarea class="bg-gray-700 rounded-lg p-2" id="consideracoes" name="resposta6"></textarea>
                         </div>
 
                         @csrf
