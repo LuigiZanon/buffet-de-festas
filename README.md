@@ -4,7 +4,7 @@
 ## Um website de agendamento e gerenciamento de festas
 
 Link para figma: 
-https://www.figma.com/file/4OjfPZZsBWbsdLAR9M1vFe/Buffet-4fun?type=design&node-id=0%3A1&mode=design&t=3AIX4jWaRFD79JyR-1
+- https://www.figma.com/file/4OjfPZZsBWbsdLAR9M1vFe/Buffet-4fun?type=design&node-id=0%3A1&mode=design&t=3AIX4jWaRFD79JyR-1
 
 ## Dependências
 | Plugin | README |
