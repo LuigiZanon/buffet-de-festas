@@ -5,6 +5,11 @@
         </h2>
     </x-slot>
 
+    @php
+    $user = Auth::user();
+    $allowedPermissions = ['access_comercial', 'access_admin'];
+    @endphp
+
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
@@ -69,6 +74,9 @@
                     </td>
                     <td class="w-full lg:w-auto p-3 text-white text-center border border-b text-center block lg:table-cell relative lg:static">
                         <span class="lg:hidden absolute top-0 left-0 bg-blue-200 px-2 py-1 text-xs font-sans uppercase">Ações</span>
+                        @if (collect($allowedPermissions)->contains(function ($permission) use ($user) {
+                            return $user->can($permission);
+                        }))
                         <form action="{{ route('AGENDA.atualizar', $reserva->id) }}" method="post">
                             @csrf
                             @method('patch')
@@ -76,17 +84,22 @@
                             <button type="submit" class="hover:underline hover:text-red-500" name="status" value="2">Recusar</button>
                             <button type="submit" class="hover:underline hover:text-yellow-300" name="status" value="0">Reset</button>
                         </form>
+                        @endif
+                        @can('access_admin')
                         <form action="{{ route('AGENDA.excluir', $reserva->id) }}" method="post" onsubmit="return confirmarCancelar()">
                             @csrf
                             @method('delete')
                             <button type="submit" class="hover:underline hover:text-red-500">Excluir</button>
                         </form>
+                        @endcan
+                        @can('access_operacional')
                         <a class="hover:underline" href="{{route('ver.lista', ['id' => $reserva->id])}}">Lista de Convidados</a>
                         <script>
                             function confirmarCancelar() {
                                 return confirm('Tem certeza que deseja cancelar?');
                             }
                         </script>
+                        @endcan
 
                     </td>
                 </tr>

@@ -22,15 +22,15 @@
                 <form action="{{ route('ADD.funcionamento') }}" method="post" class="flex flex-col items-center">
 
                     <label class="text-white" for="horarioMin">Horário Mínimo:</label>
-                    <input class=" bg-gray-700 rounded-lg p-2" type="time" name="horarioMin" required>
+                    <input class="text-white bg-gray-700 rounded-lg p-2" type="time" name="horarioMin" required>
                     <br>
 
                     <label class="text-white" for="horarioMax">Horário Máximo:</label>
-                    <input class=" bg-gray-700 rounded-lg p-2" type="time" name="horarioMax" required>
+                    <input class="text-white bg-gray-700 rounded-lg p-2" type="time" name="horarioMax" required>
                     <br>
 
                     <label class="text-white" for="horasPfesta">Horas por Festa:</label>
-                    <input class=" bg-gray-700 rounded-lg p-2" type="number" name="horasPfesta" inputmode="numeric" required>
+                    <input class="text-white bg-gray-700 rounded-lg p-2" type="number" name="horasPfesta" inputmode="numeric" required>
                     <br>
 
                     @csrf

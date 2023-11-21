@@ -10,20 +10,37 @@
                     </a>
                 </div>
 
+                @php
+            $user = Auth::user();
+            $allowedPermissions = ['access_comercial', 'access_admin', 'access_operacional'];
+            @endphp
+
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Suas Festas') }}
-                    </x-nav-link>
                     <x-nav-link :href="route('MENU.agenda')" :active="request()->routeIs('MENU.agenda')">
                         {{ __('Agendamentos') }}
                     </x-nav-link>
+
+                    @if (collect($allowedPermissions)->contains(function ($permission) use ($user) {
+                        return $user->can($permission);
+                    }))
+                    @cannot('access_operacional')
                     <x-nav-link :href="route('MENU.pacotes')" :active="request()->routeIs('MENU.pacotes')">
                         {{ __('Pacotes') }}
                     </x-nav-link>
+                    @endcannot
+                    @else
+
+                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
+                        {{ __('Suas Festas') }}
+                    </x-nav-link>
+                    @endif
+
+                    @can('access_admin')
                     <x-nav-link :href="route('MENU.posfesta')" :active="request()->routeIs('MENU.pacotes')">
                         {{ __('Pós-Festa') }}
                     </x-nav-link>
+                    @endcan
 
                 </div>
             </div>
