@@ -21,6 +21,8 @@ Link para figma:
 #### Realize um clone do repositório
 ```sh
 git clone https://github.com/LuigiZanon/buffet-de-festas.git
+cd buffet-de-festas/
+code .
 ```
 
 - Abra a pasta 'buffet-de-festas' em um IDE de sua preferência e execute os seguintes comandos:
