@@ -30,7 +30,9 @@ Route::get('/', [MenuController::class,'menu'])->name('menu');
 
 Route::get('/dashboard', function () {
 
-    $reservas = esperagenda::all();
+    $user = auth()->user()->email;
+    $reservas = esperagenda::where('email', $user)
+                           ->get();
 
     return view('dashboard', compact('reservas'));
 })->middleware(['auth', 'verified'])->name('dashboard');

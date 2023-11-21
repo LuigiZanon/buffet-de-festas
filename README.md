@@ -35,6 +35,7 @@ wsl
 ```
 Em um novo terminal, dê o seguinte comando:
 ```sh
+npm install
 npm run dev
 ```
 Agora, dentro do terminal laravel.test-1, dê o migrate.
@@ -50,3 +51,23 @@ O sistema possui 4 niveis de acesso:
 - Operacional
 - Administrativo
 - Aniversariante
+
+para que tudodê certo, siga estes passos:
+- logue com:
+```sh
+admin@admin.com
+'password'
+```
+
+- ir em 'Agendar', 'Horario de funcionamento' e definir um horario e tempo de festa
+- ir em 'Agendar', 'Editar recomendações' e definir as recomendações do buffet
+- Ir em 'Pacotes', 'Criar pacote' e crie pelo menos um pacote
+
+
+
+---/---
+
+
+
+- Agora você ja pode registrar festas com um usuário de permissão aniversariante
+- Parabéns por setar o website!
